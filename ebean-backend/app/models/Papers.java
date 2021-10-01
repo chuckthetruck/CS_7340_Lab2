@@ -3,8 +3,8 @@ package models;
 import com.avaje.ebean.Model;
 import play.data.validation.Constraints;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Papers {
@@ -48,13 +48,24 @@ public class Papers {
     @Constraints.Required
     public String isbn;
 
+    @ManyToMany
+    @JoinTable(name="paperstoauthors",
+            joinColumns=@JoinColumn(name="paper_id",referencedColumnName = "paper_id"),
+            inverseJoinColumns = @JoinColumn(name="author_id", referencedColumnName="author_id"))
+    public List<Authors> authors;
+
     public static Model.Find<Long, Papers> find = new Model.Find<Long, Papers>(){};
 
     public static Papers findByName(String name) {
-        return Papers.find
-                .where()
-                .eq("title", name)
-                .findUnique();
+
+        Papers paper = Papers.find
+                        .where()
+                        .eq("title", name)
+                        .findUnique();
+
+        System.out.println(paper.authors.get(0).author_name);
+
+        return paper;
     }
 
 

@@ -3,6 +3,12 @@
 
 # --- !Ups
 
+create table authors (
+  author_id                     bigint auto_increment not null,
+  author_name                   varchar(255),
+  constraint pk_authors primary key (author_id)
+);
+
 create table papers (
   paper_id                      bigint auto_increment not null,
   title                         varchar(255),
@@ -20,8 +26,30 @@ create table papers (
   constraint pk_papers primary key (paper_id)
 );
 
+create table paperstoauthors (
+  paper_id                      bigint not null,
+  author_id                     bigint not null,
+  constraint pk_paperstoauthors primary key (paper_id,author_id)
+);
+
+alter table paperstoauthors add constraint fk_paperstoauthors_papers foreign key (paper_id) references papers (paper_id) on delete restrict on update restrict;
+create index ix_paperstoauthors_papers on paperstoauthors (paper_id);
+
+alter table paperstoauthors add constraint fk_paperstoauthors_authors foreign key (author_id) references authors (author_id) on delete restrict on update restrict;
+create index ix_paperstoauthors_authors on paperstoauthors (author_id);
+
 
 # --- !Downs
 
+alter table paperstoauthors drop foreign key fk_paperstoauthors_papers;
+drop index ix_paperstoauthors_papers on paperstoauthors;
+
+alter table paperstoauthors drop foreign key fk_paperstoauthors_authors;
+drop index ix_paperstoauthors_authors on paperstoauthors;
+
+drop table if exists authors;
+
 drop table if exists papers;
+
+drop table if exists paperstoauthors;
 

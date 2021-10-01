@@ -1,5 +1,6 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.data.Form;
 import play.data.FormFactory;
@@ -12,6 +13,7 @@ import play.twirl.api.Html;
 import views.html.*;
 
 import javax.inject.Inject;
+import java.util.Iterator;
 import java.util.concurrent.CompletionStage;
 
 /**
@@ -23,6 +25,7 @@ public class HomeController extends Controller {
     HttpExecutionContext ec;
 
     private FormFactory formFactory;
+    private Iterator it;
 
     @Inject
     public HomeController(FormFactory formFactory) {
@@ -40,14 +43,31 @@ public class HomeController extends Controller {
     public Result query11(){return ok(views.html.q11.render(""));}
     public CompletionStage<Result> q11Handler(){
         Form<Paper> q11Form = formFactory.form(Paper.class).bindFromRequest();
-        ObjectNode response = Json.newObject();
         if (q11Form.get().getTitle() == null){
             return (CompletionStage<Result>) ok(q11.render("Test Message for q11"));
         }
         return q11Form.get().checkPaper().thenApplyAsync((WSResponse r)->{
 
                 if (r.getStatus() == 200 && r.asJson() != null) {
-                    return ok(views.html.q11.render(r.asJson().toString()));
+
+                    String outString = "";
+
+                    JsonNode response = r.asJson();
+
+                    Iterator it = response.fieldNames();
+                    System.out.println(response.fields());
+
+                    while(it.hasNext()){
+                        String key = it.next().toString();
+                        JsonNode value = response.get(key);
+                        System.out.println(value.toString());
+                        if(value.toString() != "null"){
+                            outString += key +":\t" + value + "\n";
+                        }
+                    }
+
+
+                    return ok(views.html.q11.render(outString));
                 }
                 else{
                     return ok(views.html.q11.render("No Title By That name"));
