@@ -16,7 +16,17 @@ public class PaperController extends Controller {
         try {
             Papers paper = Papers.findByName(title); // ( match where username and password both match )
             if(paper!=null){
-                res.put("journal", paper.journal);
+                res.put("Title", paper.title);
+                res.put("Conference", paper.book_title);
+                res.put("Publisher", paper.publisher);
+                res.put("Year",paper.year);
+                res.put("Journal", paper.journal);
+                res.put("Volume", paper.volume);
+                res.put("Number", paper.number);
+                res.put("Pages", paper.pages);
+                res.put("URL", paper.url);
+                res.put("EE", paper.ee);
+                res.put("CrossRef",paper.crossref);
                 return ok(res);
             }else{
                 return ok("No Result");

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/CJ/Desktop/8391/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Tue Sep 28 18:19:05 CDT 2021
+// @SOURCE:C:/Users/User/Desktop/8391/lab2/Frontend/conf/routes
+// @DATE:Fri Oct 01 11:53:16 CDT 2021
 
 package router
 
@@ -16,7 +16,7 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:7
   HomeController_1: controllers.HomeController,
-  // @LINE:12
+  // @LINE:13
   Assets_0: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -25,7 +25,7 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:7
     HomeController_1: controllers.HomeController,
-    // @LINE:12
+    // @LINE:13
     Assets_0: controllers.Assets
   ) = this(errorHandler, HomeController_1, Assets_0, "/")
 
@@ -41,7 +41,8 @@ class Routes(
 
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query11""", """controllers.HomeController.q11Handler()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query11Handler""", """controllers.HomeController.q11Handler()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """query11""", """controllers.HomeController.query11()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -70,7 +71,7 @@ class Routes(
 
   // @LINE:8
   private[this] lazy val controllers_HomeController_q11Handler1_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("query11")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("query11Handler")))
   )
   private[this] lazy val controllers_HomeController_q11Handler1_invoker = createInvoker(
     HomeController_1.q11Handler(),
@@ -80,17 +81,35 @@ class Routes(
       "q11Handler",
       Nil,
       "GET",
+      this.prefix + """query11Handler""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:9
+  private[this] lazy val controllers_HomeController_query112_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("query11")))
+  )
+  private[this] lazy val controllers_HomeController_query112_invoker = createInvoker(
+    HomeController_1.query11(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "query11",
+      Nil,
+      "GET",
       this.prefix + """query11""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:12
-  private[this] lazy val controllers_Assets_at2_route = Route("GET",
+  // @LINE:13
+  private[this] lazy val controllers_Assets_at3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at2_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at3_invoker = createInvoker(
     Assets_0.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -119,10 +138,16 @@ class Routes(
         controllers_HomeController_q11Handler1_invoker.call(HomeController_1.q11Handler())
       }
   
-    // @LINE:12
-    case controllers_Assets_at2_route(params@_) =>
+    // @LINE:9
+    case controllers_HomeController_query112_route(params@_) =>
+      call { 
+        controllers_HomeController_query112_invoker.call(HomeController_1.query11())
+      }
+  
+    // @LINE:13
+    case controllers_Assets_at3_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at2_invoker.call(Assets_0.at(path, file))
+        controllers_Assets_at3_invoker.call(Assets_0.at(path, file))
       }
   }
 }

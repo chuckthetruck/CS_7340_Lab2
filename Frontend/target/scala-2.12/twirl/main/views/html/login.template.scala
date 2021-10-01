@@ -30,7 +30,8 @@ object login extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
       {
 
 
-Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*1.28*/("""
+"""),format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
 
     <style>
@@ -90,7 +91,7 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
         <div class="grid-container">
             <div class="grid-item">
-                <form action = """"),_display_(/*62.34*/routes/*62.40*/.HomeController.q11Handler()),format.raw/*62.68*/("""" method="GET">
+                <form action = """"),_display_(/*62.34*/routes/*62.40*/.HomeController.query11()),format.raw/*62.65*/("""" method="GET">
                     <button id="api-get-page"  class="button" type="submit">1.1 Paper Search</button>
                 </form>
 
@@ -150,11 +151,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-09-28T16:33:13.823
-                  SOURCE: C:/Users/CJ/Desktop/8391/Lab-2-Ebean/Frontend/app/views/login.scala.html
-                  HASH: a8da1d2c216b48fc37956e8bd4e608fadfe9f332
-                  MATRIX: 948->1|1068->28|1155->88|1183->89|1223->102|1390->242|1419->243|1456->253|1495->264|1524->265|1565->278|1781->467|1810->468|1847->478|1883->486|1912->487|1953->500|2300->820|2329->821|2361->826|3891->2331|3906->2337|3955->2365
-                  LINES: 28->1|33->2|37->6|37->6|38->7|42->11|42->11|44->13|44->13|44->13|45->14|50->19|50->19|52->21|52->21|52->21|53->22|63->32|63->32|64->33|93->62|93->62|93->62
+                  DATE: 2021-10-01T11:53:17.112
+                  SOURCE: C:/Users/User/Desktop/8391/lab2/Frontend/app/views/login.scala.html
+                  HASH: 34c468551b803c405f8a0cdad2d04bb676856ddb
+                  MATRIX: 948->1|1069->27|1097->29|1188->93|1216->94|1257->108|1428->252|1457->253|1496->265|1535->276|1564->277|1606->291|1827->485|1856->486|1895->498|1931->506|1960->507|2002->521|2359->851|2388->852|2421->858|3980->2392|3995->2398|4041->2423
+                  LINES: 28->1|33->1|34->2|38->6|38->6|39->7|43->11|43->11|45->13|45->13|45->13|46->14|51->19|51->19|53->21|53->21|53->21|54->22|64->32|64->32|65->33|94->62|94->62|94->62
                   -- GENERATED --
               */
           

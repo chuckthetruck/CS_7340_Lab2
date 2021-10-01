@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/CJ/Desktop/8391/Lab-2-Ebean/ebean-backend/conf/routes
-// @DATE:Tue Sep 28 17:18:06 CDT 2021
+// @SOURCE:C:/Users/User/Desktop/8391/lab2/ebean-backend/conf/routes
+// @DATE:Wed Sep 29 10:44:05 CDT 2021
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/CJ/Desktop/8391/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Tue Sep 28 18:19:05 CDT 2021
+// @SOURCE:C:/Users/User/Desktop/8391/lab2/Frontend/conf/routes
+// @DATE:Fri Oct 01 11:53:16 CDT 2021
 
 import play.api.mvc.Call
 
@@ -21,7 +21,7 @@ package controllers {
     // @LINE:8
     def q11Handler(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "query11")
+      Call("GET", _prefix + { _defaultPrefix } + "query11Handler")
     }
   
     // @LINE:7
@@ -30,16 +30,22 @@ package controllers {
       Call("GET", _prefix)
     }
   
+    // @LINE:9
+    def query11(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "query11")
+    }
+  
   }
 
-  // @LINE:12
+  // @LINE:13
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:12
+    // @LINE:13
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))

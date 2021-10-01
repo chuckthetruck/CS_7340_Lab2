@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/CJ/Desktop/8391/Lab-2-Ebean/Frontend/conf/routes
-// @DATE:Tue Sep 28 18:19:05 CDT 2021
+// @SOURCE:C:/Users/User/Desktop/8391/lab2/Frontend/conf/routes
+// @DATE:Fri Oct 01 11:53:16 CDT 2021
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -24,7 +24,7 @@ package controllers.javascript {
       "controllers.HomeController.q11Handler",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query11"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query11Handler"})
         }
       """
     )
@@ -39,9 +39,19 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:9
+    def query11: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.query11",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "query11"})
+        }
+      """
+    )
+  
   }
 
-  // @LINE:12
+  // @LINE:13
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -49,7 +59,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
+    // @LINE:13
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """

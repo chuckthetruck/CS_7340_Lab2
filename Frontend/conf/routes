@@ -5,7 +5,8 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index()
-GET     /query11                    controllers.HomeController.q11Handler()
+GET     /query11Handler             controllers.HomeController.q11Handler()
+GET     /query11                    controllers.HomeController.query11()
 
 
 # Map static resources from the /public folder to the /assets URL path
