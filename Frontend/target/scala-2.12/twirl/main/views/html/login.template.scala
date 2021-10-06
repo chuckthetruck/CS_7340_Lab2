@@ -30,8 +30,7 @@ object login extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
       {
 
 
-Seq[Any](format.raw/*1.28*/("""
-"""),format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
 
     <style>
@@ -98,17 +97,25 @@ Seq[Any](format.raw/*1.28*/("""
             </div>
 
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query12">1.2 Journal Search</button>
+                <form action = """"),_display_(/*69.34*/routes/*69.40*/.HomeController.query12()),format.raw/*69.65*/("""" method="GET">
+                    <button id="api-get-page" class="button" type="submit">1.2 Journal Search</button>
+                </form>
             </div>
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query13">1.3 Author Title Search</button>
+                <form action = """"),_display_(/*74.34*/routes/*74.40*/.HomeController.query13()),format.raw/*74.65*/("""" method="GET">
+                    <button id="api-get-page" class="button" type="submit">1.3 Author Title Search</button>
+                </form>
             </div>
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query14">1.4 Authors With 10+ Papers</button>
+                <form action = """"),_display_(/*79.34*/routes/*79.40*/.HomeController.query14()),format.raw/*79.65*/("""" method="GET">
+                    <button id="api-get-page" class="button" type="submit">1.4 Authors With 10+ Papers</button>
+                </form>
             </div>
             <div class="grid-item"></div>
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query15">1.5 Conference Location Search</button>
+                <form action = """"),_display_(/*85.34*/routes/*85.40*/.HomeController.query15()),format.raw/*85.65*/("""" method="GET">
+                    <button id="api-get-page" class="button" type="submit">1.5 Conference Location Search</button>
+                </form>
             </div>
         </div>
 
@@ -123,14 +130,20 @@ Seq[Any](format.raw/*1.28*/("""
 
         <div class="grid-container">
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query21">2.1 Author Paper Search</button>
+                <form action = """"),_display_(/*102.34*/routes/*102.40*/.HomeController.query21()),format.raw/*102.65*/("""" method="GET">
+                    <button id="api-get-page" class="button" type="submit">2.1 Author Paper Search</button>
+                </form>
             </div>
 
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query12">2.2 Productive Authors Co-Authors</button>
+                <form action = """"),_display_(/*108.34*/routes/*108.40*/.HomeController.query22()),format.raw/*108.65*/("""" method="GET">
+                    <button id="api-get-page" class="button" type="submit">2.2 Productive Authors Co-Authors</button>
+                </form>
             </div>
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query13">2.3 Map of Conference Locations</button>
+                <form action = """"),_display_(/*113.34*/routes/*113.40*/.HomeController.query23()),format.raw/*113.65*/("""" method="GET">
+                    <button id="api-get-page" class="button" type="submit">2.3 Map of Conference Locations</button>
+                </form>
             </div>
         </div>
     </body>
@@ -151,11 +164,11 @@ Seq[Any](format.raw/*1.28*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-10-01T13:42:17.226
-                  SOURCE: C:/Users/CJ/Desktop/8391/lab2/Frontend/app/views/login.scala.html
-                  HASH: 34c468551b803c405f8a0cdad2d04bb676856ddb
-                  MATRIX: 948->1|1069->27|1097->29|1188->93|1216->94|1257->108|1428->252|1457->253|1496->265|1535->276|1564->277|1606->291|1827->485|1856->486|1895->498|1931->506|1960->507|2002->521|2359->851|2388->852|2421->858|3980->2392|3995->2398|4041->2423
-                  LINES: 28->1|33->1|34->2|38->6|38->6|39->7|43->11|43->11|45->13|45->13|45->13|46->14|51->19|51->19|53->21|53->21|53->21|54->22|64->32|64->32|65->33|94->62|94->62|94->62
+                  DATE: 2021-10-05T16:37:16.834
+                  SOURCE: /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/app/views/login.scala.html
+                  HASH: b222eed3bf7e78c0145103c5e0ea0af14638bb17
+                  MATRIX: 948->1|1068->28|1155->88|1183->89|1223->102|1390->242|1419->243|1456->253|1495->264|1524->265|1565->278|1781->467|1810->468|1847->478|1883->486|1912->487|1953->500|2300->820|2329->821|2361->826|3891->2331|3906->2337|3952->2362|4211->2594|4226->2600|4272->2625|4530->2856|4545->2862|4591->2887|4854->3123|4869->3129|4915->3154|5224->3436|5239->3442|5285->3467|5817->3971|5833->3977|5880->4002|6145->4239|6161->4245|6208->4270|6482->4516|6498->4522|6545->4547
+                  LINES: 28->1|33->2|37->6|37->6|38->7|42->11|42->11|44->13|44->13|44->13|45->14|50->19|50->19|52->21|52->21|52->21|53->22|63->32|63->32|64->33|93->62|93->62|93->62|100->69|100->69|100->69|105->74|105->74|105->74|110->79|110->79|110->79|116->85|116->85|116->85|133->102|133->102|133->102|139->108|139->108|139->108|144->113|144->113|144->113
                   -- GENERATED --
               */
           

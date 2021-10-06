@@ -66,17 +66,25 @@
             </div>
 
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query12">1.2 Journal Search</button>
+                <form action = "@routes.HomeController.query12()" method="GET">
+                    <button id="api-get-page" class="button" type="submit">1.2 Journal Search</button>
+                </form>
             </div>
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query13">1.3 Author Title Search</button>
+                <form action = "@routes.HomeController.query13()" method="GET">
+                    <button id="api-get-page" class="button" type="submit">1.3 Author Title Search</button>
+                </form>
             </div>
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query14">1.4 Authors With 10+ Papers</button>
+                <form action = "@routes.HomeController.query14()" method="GET">
+                    <button id="api-get-page" class="button" type="submit">1.4 Authors With 10+ Papers</button>
+                </form>
             </div>
             <div class="grid-item"></div>
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query15">1.5 Conference Location Search</button>
+                <form action = "@routes.HomeController.query15()" method="GET">
+                    <button id="api-get-page" class="button" type="submit">1.5 Conference Location Search</button>
+                </form>
             </div>
         </div>
 
@@ -91,14 +99,20 @@
 
         <div class="grid-container">
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query21">2.1 Author Paper Search</button>
+                <form action = "@routes.HomeController.query21()" method="GET">
+                    <button id="api-get-page" class="button" type="submit">2.1 Author Paper Search</button>
+                </form>
             </div>
 
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query12">2.2 Productive Authors Co-Authors</button>
+                <form action = "@routes.HomeController.query22()" method="GET">
+                    <button id="api-get-page" class="button" type="submit">2.2 Productive Authors Co-Authors</button>
+                </form>
             </div>
             <div class="grid-item">
-                <button id="api-get-page" class="button" type="query13">2.3 Map of Conference Locations</button>
+                <form action = "@routes.HomeController.query23()" method="GET">
+                    <button id="api-get-page" class="button" type="submit">2.3 Map of Conference Locations</button>
+                </form>
             </div>
         </div>
     </body>

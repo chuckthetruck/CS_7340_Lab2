@@ -74,6 +74,42 @@ public class HomeController extends Controller {
                 }
 
         });
+
+    }
+
+    public Result query12(){return ok(views.html.q12.render(""));}
+    public Result q12Handler(){
+        return ok(views.html.q13.render("testing 123"));
+    }
+
+    public Result query13(){return ok(views.html.q13.render(""));}
+    public Result q13Handler(){
+        return ok(views.html.q13.render("testing 123"));
+    }
+
+    public Result query14(){return ok(views.html.q14.render(""));}
+    public Result q14Handler(){
+        return ok(views.html.q13.render("testing 123"));
+    }
+
+    public Result query15(){return ok(views.html.q15.render(""));}
+    public Result q15Handler(){
+        return ok(views.html.q15.render("testing 123"));
+    }
+
+    public Result query21(){return ok(views.html.q21.render(""));}
+    public Result q21Handler(){
+        return ok(views.html.q21.render("testing 123"));
+    }
+
+    public Result query22(){return ok(views.html.q22.render(""));}
+    public Result q22Handler(){
+        return ok(views.html.q22.render("testing 123"));
+    }
+
+    public Result query23(){return ok(views.html.q23.render(""));}
+    public Result q23Handler(){
+        return ok(views.html.q23.render("testing 123"));
     }
 
 }

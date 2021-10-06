@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class HttpUtil {
 
-    private static final String BASE_URL = "http://localhost:9000";
+    private static final String BASE_URL = "http://localhost:9005";
 
     public static HttpResponse makeRequest (
             String partialUrl, String httpMethod, JsonNode parameters) {
