@@ -1,6 +1,15 @@
 @(message: String)
 <!DOCTYPE html>
+
 <html>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
 
     <style>
             .button {
@@ -15,6 +24,8 @@
                 margin: 4px 2px;
                 cursor: pointer;
             }
+
+            #mapid { height: 600px; }
     </style>
 
     <body>
@@ -42,5 +53,77 @@
             <input type = "text" maxlength="100" id="years" name="years">
             <button id="api-get-page"  class="button" type="submit">2.3 Map Search</button>
         </form>
+
+        <div id="mapid"></div>
+        <script>
+
+                let icws = {
+                    LVx: 36.1699,//vegas 2003
+                    LVy: -115.1398,
+                    SDx: 32.7157,//san diego 2004
+                    SDy: -117.611,
+                    OFx: 28.5384,//orlando florida 2005
+                    OFy: -81.3789,
+                    CIx: 41.8781,//chicago illinois 2006
+                    CIy: -87.6298,
+                    SLx: 40.7608,//salt lake city utah 2007
+                    SLy: -111.8910,
+                    BCx: 39.9042,//beijing china 2008
+                    BCy: 116.4074,
+                    LAx: 34.0522,//los angeles 2009
+                    LAy: -118.2437,
+                    MFx: 25.7617,//miami florida 2010
+                    MFy: -80.1918,
+                    DCx: 38.9072,//washington dc 2011
+                    DCy: -77.0369,
+                    HHx: 21.3069,//honolulu hawaii 2012
+                    HHy: -157.8583,
+                    SCx: 37.3541,//santa clara california 2013
+                    SCy: -121.9552,
+                    AAx: 61.2181,//anchorage alaska 2014
+                    AAy: -149.9003,
+                    NYx: 40.7128,//new york city 2015
+                    NYy: -74.0060,
+                    SFx: 37.7749,//san francisco 2016
+                    SFy: -122.4194,
+                    MIx: 45.4642,//milan italy 2019
+                    MIy: 9.1900,
+                    //no duplicates for 2017 honolulu, 2018 san fran, 2020 beijing
+                    //add them if you want but I couldn't store a key as a number
+                }
+
+                let scc = {
+                    BIx: 12.9716,//bangalore india
+                    BIy: 77.5946,
+                    //bangalore is only unique value (2009) in scc
+                    //the rest of the values appear in icws with the same year
+                }
+
+                var mymap = L.map('mapid').setView([0, 0], 2);
+
+                L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=dcj0rBj8ACT4YDvql2hH', {
+                    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+                }).addTo(mymap);
+
+                //var marker = L.marker([51.5, -.09]).addTo(mymap); //londok UK test marker
+                var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
+                var SD = L.marker([icws["SDx"], icws["SDy"]]).addTo(mymap);
+                var OF = L.marker([icws["OFx"], icws["OFy"]]).addTo(mymap);
+                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                var SC = L.marker([icws["SCx"], icws["SCy"]]).addTo(mymap);
+                var MF = L.marker([icws["MFx"], icws["MFy"]]).addTo(mymap);
+                var DC = L.marker([icws["DCx"], icws["DCy"]]).addTo(mymap);
+                var MI = L.marker([icws["MIx"], icws["MIy"]]).addTo(mymap);
+                var LA = L.marker([icws["LAx"], icws["LAy"]]).addTo(mymap);
+                var AA = L.marker([icws["AAx"], icws["AAy"]]).addTo(mymap);
+                var SL = L.marker([icws["SLx"], icws["SLy"]]).addTo(mymap);
+                var CI = L.marker([icws["CIx"], icws["CIy"]]).addTo(mymap);
+                var NY = L.marker([icws["NYx"], icws["NYy"]]).addTo(mymap);
+
+                var BI = L.marker([scc["BIx"], scc["BIy"]]).addTo(mymap);
+        </script>
+
     </body>
 </html>
