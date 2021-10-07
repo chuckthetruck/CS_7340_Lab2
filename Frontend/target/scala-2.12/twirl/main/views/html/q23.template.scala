@@ -89,52 +89,90 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
         <script>
 
                 let icws = """),format.raw/*60.28*/("""{"""),format.raw/*60.29*/("""
-                    """),format.raw/*61.21*/("""LVx: 36.1699,//vegas
+                    """),format.raw/*61.21*/("""LVx: 36.1699,//vegas 2003
                     LVy: -115.1398,
-                    SDx: 32.7157,//san diego
+                    SDx: 32.7157,//san diego 2004
                     SDy: -117.611,
-                    OFx: 28.5384,//orlando florida
+                    OFx: 28.5384,//orlando florida 2005
                     OFy: -81.3789,
-                    CIx: 41.8781,//chicago illinois
+                    CIx: 41.8781,//chicago illinois 2006
                     CIy: -87.6298,
-                    SLx: 40.7608,//salt lake city utah
+                    SLx: 40.7608,//salt lake city utah 2007
                     SLy: -111.8910,
-                    BCx: 39.9042,//beijing china
+                    BCx: 39.9042,//beijing china 2008
                     BCy: 116.4074,
-                    LAx: 34.0522,//los angeles
+                    LAx: 34.0522,//los angeles 2009
                     LAy: -118.2437,
-                    MFx: 25.7617,//miami florida
+                    MFx: 25.7617,//miami florida 2010
                     MFy: -80.1918,
-                    DCx: 38.9072,//washington dc
+                    DCx: 38.9072,//washington dc 2011
                     DCy: -77.0369,
-                    HHx: 21.3069,//honolulu hawaii
+                    HHx: 21.3069,//honolulu hawaii 2012
                     HHy: -157.8583,
-                    SCx: 37.3541,//santa clara california
+                    SCx: 37.3541,//santa clara california 2013
                     SCy: -121.9552,
-                    AAx: 61.2181,//anchorage alaska
+                    AAx: 61.2181,//anchorage alaska 2014
                     AAy: -149.9003,
-                    NYx: 40.7128,//new york city
+                    NYx: 40.7128,//new york city 2015
                     NYy: -74.0060,
-                    SFx: 37.7749,//san francisco
+                    SFx: 37.7749,//san francisco 2016
                     SFy: -122.4194,
-                    MIx: 45.4642,//milan italy
+                    HH2x: 21.3069,//honolulu hawaii 2017 (duplicate)
+                    HH2y: -157.8583,
+                    SF2x: 37.7749,//san francisco 2018 (duplicate)
+                    SF2y: -122.4194,
+                    MIx: 45.4642,//milan italy 2019
                     MIy: 9.1900,
-                    //no duplicates for 2017 honolulu, 2018 san fran, 2020 beijing
-                    //add them if you want but I couldn't store a key as a number
-                """),format.raw/*93.17*/("""}"""),format.raw/*93.18*/("""
+                    BC2x: 39.9042,//beijing china 2020 (duplicate)
+                    BC2y: 116.4074,
+                """),format.raw/*97.17*/("""}"""),format.raw/*97.18*/("""
 
-                """),format.raw/*95.17*/("""let scc = """),format.raw/*95.27*/("""{"""),format.raw/*95.28*/("""
-                    """),format.raw/*96.21*/("""BIx: 12.9716,//bangalore india
+                """),format.raw/*99.17*/("""let scc = """),format.raw/*99.27*/("""{"""),format.raw/*99.28*/("""
+                    """),format.raw/*100.21*/("""LVx: 36.1699,//vegas 2003
+                    LVy: -115.1398,
+                    SDx: 32.7157,//san diego 2004
+                    SDy: -117.611,
+                    OFx: 28.5384,//orlando florida 2005
+                    OFy: -81.3789,
+                    CIx: 41.8781,//chicago illinois 2006
+                    CIy: -87.6298,
+                    SLx: 40.7608,//salt lake city utah 2007
+                    SLy: -111.8910,
+                    BCx: 39.9042,//beijing china 2008
+                    BCy: 116.4074,
+                    BIx: 12.9716,//bangalore india
                     BIy: 77.5946,
-                    //bangalore is only unique value (2009)
-                    //the rest of the values appear in icws
-                """),format.raw/*100.17*/("""}"""),format.raw/*100.18*/("""
+                    MFx: 25.7617,//miami florida 2010
+                    MFy: -80.1918,
+                    DCx: 38.9072,//washington dc 2011
+                    DCy: -77.0369,
+                    HHx: 21.3069,//honolulu hawaii 2012
+                    HHy: -157.8583,
+                    SCx: 37.3541,//santa clara california 2013
+                    SCy: -121.9552,
+                    AAx: 61.2181,//anchorage alaska 2014
+                    AAy: -149.9003,
+                    NYx: 40.7128,//new york city 2015
+                    NYy: -74.0060,
+                    SFx: 37.7749,//san francisco 2016
+                    SFy: -122.4194,
+                    HH2x: 21.3069,//honolulu hawaii 2017 (duplicate)
+                    HH2y: -157.8583,
+                    SF2x: 37.7749,//san francisco 2018 (duplicate)
+                    SF2y: -122.4194,
+                    MIx: 45.4642,//milan italy 2019
+                    MIy: 9.1900,
+                    BC2x: 39.9042,//beijing china 2020 (duplicate)
+                    BC2y: 116.4074,
+                    //bangalore is only unique value (2009) in scc
+                    //the rest of the values appear in icws with the same year
+                """),format.raw/*138.17*/("""}"""),format.raw/*138.18*/("""
 
-                """),format.raw/*102.17*/("""var mymap = L.map('mapid').setView([0, 0], 2);
+                """),format.raw/*140.17*/("""var mymap = L.map('mapid').setView([0, 0], 2);
 
-                L.tileLayer('https://api.maptiler.com/maps/streets/"""),format.raw/*104.68*/("""{"""),format.raw/*104.69*/("""z"""),format.raw/*104.70*/("""}"""),format.raw/*104.71*/("""/"""),format.raw/*104.72*/("""{"""),format.raw/*104.73*/("""x"""),format.raw/*104.74*/("""}"""),format.raw/*104.75*/("""/"""),format.raw/*104.76*/("""{"""),format.raw/*104.77*/("""y"""),format.raw/*104.78*/("""}"""),format.raw/*104.79*/(""".png?key=dcj0rBj8ACT4YDvql2hH', """),format.raw/*104.111*/("""{"""),format.raw/*104.112*/("""
-                    """),format.raw/*105.21*/("""attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-                """),format.raw/*106.17*/("""}"""),format.raw/*106.18*/(""").addTo(mymap);
+                L.tileLayer('https://api.maptiler.com/maps/streets/"""),format.raw/*142.68*/("""{"""),format.raw/*142.69*/("""z"""),format.raw/*142.70*/("""}"""),format.raw/*142.71*/("""/"""),format.raw/*142.72*/("""{"""),format.raw/*142.73*/("""x"""),format.raw/*142.74*/("""}"""),format.raw/*142.75*/("""/"""),format.raw/*142.76*/("""{"""),format.raw/*142.77*/("""y"""),format.raw/*142.78*/("""}"""),format.raw/*142.79*/(""".png?key=dcj0rBj8ACT4YDvql2hH', """),format.raw/*142.111*/("""{"""),format.raw/*142.112*/("""
+                    """),format.raw/*143.21*/("""attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+                """),format.raw/*144.17*/("""}"""),format.raw/*144.18*/(""").addTo(mymap);
 
                 //var marker = L.marker([51.5, -.09]).addTo(mymap); //londok UK test marker
                 var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
@@ -173,11 +211,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-10-06T16:38:30.018
+                  DATE: 2021-10-07T14:13:11.485
                   SOURCE: /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/app/views/q23.scala.html
-                  HASH: e5bf06a964d16212afce05bc83c9fa66f705cc52
-                  MATRIX: 946->1|1057->19|1626->562|1655->563|1700->580|2088->940|2117->941|2159->955|2194->962|2223->963|2252->964|2295->979|2324->980|2356->985|2720->1322|2748->1329|2789->1342|2863->1389|2878->1395|2927->1423|3385->1853|3414->1854|3463->1875|4926->3310|4955->3311|5001->3329|5039->3339|5068->3340|5117->3361|5347->3562|5377->3563|5424->3581|5568->3696|5598->3697|5628->3698|5658->3699|5688->3700|5718->3701|5748->3702|5778->3703|5808->3704|5838->3705|5868->3706|5898->3707|5960->3739|5991->3740|6041->3761|6288->3979|6318->3980
-                  LINES: 28->1|33->2|46->15|46->15|47->16|57->26|57->26|59->28|59->28|59->28|59->28|59->28|59->28|60->29|75->44|75->44|76->45|80->49|80->49|80->49|91->60|91->60|92->61|124->93|124->93|126->95|126->95|126->95|127->96|131->100|131->100|133->102|135->104|135->104|135->104|135->104|135->104|135->104|135->104|135->104|135->104|135->104|135->104|135->104|135->104|135->104|136->105|137->106|137->106
+                  HASH: abf5fb64080f46e7a32adc7313830b273fd3f618
+                  MATRIX: 946->1|1057->19|1626->562|1655->563|1700->580|2088->940|2117->941|2159->955|2194->962|2223->963|2252->964|2295->979|2324->980|2356->985|2720->1322|2748->1329|2789->1342|2863->1389|2878->1395|2927->1423|3385->1853|3414->1854|3463->1875|5149->3533|5178->3534|5224->3552|5262->3562|5291->3563|5341->3584|7171->5385|7201->5386|7248->5404|7392->5519|7422->5520|7452->5521|7482->5522|7512->5523|7542->5524|7572->5525|7602->5526|7632->5527|7662->5528|7692->5529|7722->5530|7784->5562|7815->5563|7865->5584|8112->5802|8142->5803
+                  LINES: 28->1|33->2|46->15|46->15|47->16|57->26|57->26|59->28|59->28|59->28|59->28|59->28|59->28|60->29|75->44|75->44|76->45|80->49|80->49|80->49|91->60|91->60|92->61|128->97|128->97|130->99|130->99|130->99|131->100|169->138|169->138|171->140|173->142|173->142|173->142|173->142|173->142|173->142|173->142|173->142|173->142|173->142|173->142|173->142|173->142|173->142|174->143|175->144|175->144
                   -- GENERATED --
               */
           
