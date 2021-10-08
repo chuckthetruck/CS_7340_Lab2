@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/andrewbrkich/Desktop/CS_7340_Lab2/ebean-backend/conf/routes
-// @DATE:Tue Oct 05 13:22:32 CDT 2021
+// @SOURCE:C:/Users/User/Desktop/8391/lab2/ebean-backend/conf/routes
+// @DATE:Fri Oct 08 12:19:51 CDT 2021
 
 package router
 
@@ -45,6 +45,7 @@ class Routes(
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """paper""", """controllers.PaperController.paperSearch()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """journal""", """controllers.PaperController.journalSearch()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -86,6 +87,23 @@ class Routes(
     )
   )
 
+  // @LINE:10
+  private[this] lazy val controllers_PaperController_journalSearch2_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("journal")))
+  )
+  private[this] lazy val controllers_PaperController_journalSearch2_invoker = createInvoker(
+    PaperController_1.journalSearch(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PaperController",
+      "journalSearch",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """journal"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -99,6 +117,12 @@ class Routes(
     case controllers_PaperController_paperSearch1_route(params) =>
       call { 
         controllers_PaperController_paperSearch1_invoker.call(PaperController_1.paperSearch())
+      }
+  
+    // @LINE:10
+    case controllers_PaperController_journalSearch2_route(params) =>
+      call { 
+        controllers_PaperController_journalSearch2_invoker.call(PaperController_1.journalSearch())
       }
   }
 }

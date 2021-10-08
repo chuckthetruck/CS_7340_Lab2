@@ -22,15 +22,16 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object q12 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object q12 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[List[String]],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(message: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(articles: List[List[String]]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*1.32*/("""
+"""),format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
 
     <style>
@@ -59,18 +60,43 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
         </header>
 
         <div>
-            <p class="focused" style="font-size: 20px;
-                color: #3F51B5">
-                """),_display_(/*33.18*/message),format.raw/*33.25*/("""
-            """),format.raw/*34.13*/("""</p>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Conference</th>
+                    <th>Publisher</th>
+                    <th>Year</th>
+                    <th>Journal</th>
+                    <th>Volume</th>
+                    <th>Issue</th>
+                    <th>Pages</th>
+                    <th>URL</th>
+                    <th>EE</th>
+                    <th>CrossRef</th>
+                    <th>ISBN</th>
+                </tr>
+
+
+                """),_display_(/*48.18*/for(article <- articles) yield /*48.42*/{_display_(Seq[Any](format.raw/*48.43*/("""
+                    """),format.raw/*49.21*/("""<tr>
+                    """),_display_(/*50.22*/for(element <- article) yield /*50.45*/{_display_(Seq[Any](format.raw/*50.46*/("""
+
+                        """),format.raw/*52.25*/("""<td>"""),_display_(/*52.30*/element),format.raw/*52.37*/("""</td>
+
+                    """)))}),format.raw/*54.22*/("""
+                    """),format.raw/*55.21*/("""</tr>
+                """)))}),format.raw/*56.18*/("""
+
+
+            """),format.raw/*59.13*/("""</table>
 
         </div>
 
-        <form action = """"),_display_(/*38.26*/routes/*38.32*/.HomeController.q12Handler()),format.raw/*38.60*/("""" method="GET">
+        <form action = """"),_display_(/*63.26*/routes/*63.32*/.HomeController.q12Handler()),format.raw/*63.60*/("""" method="GET">
             <label>Journal name</label>
             <input type = "text" maxlength="100" id="title" name="title">
-            <label>Year</label>
-            <input type = "text" maxlength="100" id="year" name="year">
+            <label>Volume</label>
+            <input type = "text" maxlength="100" id="volume" name="volume">
             <label>Journal issue</label>
             <input type = "text" maxlength="100" id="issue" name="issue">
             <button id="api-get-page"  class="button" type="submit">1.2 Journal Search</button>
@@ -81,9 +107,9 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
     }
   }
 
-  def render(message:String): play.twirl.api.HtmlFormat.Appendable = apply(message)
+  def render(articles:List[List[String]]): play.twirl.api.HtmlFormat.Appendable = apply(articles)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (message) => apply(message)
+  def f:((List[List[String]]) => play.twirl.api.HtmlFormat.Appendable) = (articles) => apply(articles)
 
   def ref: this.type = this
 
@@ -92,11 +118,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2021-10-05T16:27:09.654
-                  SOURCE: /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/app/views/q12.scala.html
-                  HASH: f0d97728d73cb7d520abc4542b2e1f8fe39d6e55
-                  MATRIX: 946->1|1057->19|1140->75|1168->76|1212->93|1600->453|1629->454|1661->459|2029->800|2057->807|2098->820|2172->867|2187->873|2236->901
-                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|64->33|64->33|65->34|69->38|69->38|69->38
+                  DATE: 2021-10-08T13:57:39.423
+                  SOURCE: C:/Users/User/Desktop/8391/lab2/Frontend/app/views/q12.scala.html
+                  HASH: 4e1f5c1a80932d2ff7e229fd91e9449309f2cada
+                  MATRIX: 958->1|1083->31|1111->33|1198->93|1226->94|1271->112|1669->482|1698->483|1731->489|2534->1265|2574->1289|2613->1290|2663->1312|2717->1339|2756->1362|2795->1363|2851->1391|2883->1396|2911->1403|2972->1433|3022->1455|3077->1479|3123->1497|3205->1552|3220->1558|3269->1586
+                  LINES: 28->1|33->1|34->2|38->6|38->6|39->7|49->17|49->17|50->18|80->48|80->48|80->48|81->49|82->50|82->50|82->50|84->52|84->52|84->52|86->54|87->55|88->56|91->59|95->63|95->63|95->63
                   -- GENERATED --
               */
           

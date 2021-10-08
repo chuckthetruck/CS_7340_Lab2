@@ -1,25 +1,12 @@
-2021-10-06 11:02:00,372 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
-2021-10-06 11:02:00,547 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:mysql://localhost:3306/cs7340_test?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-2021-10-06 11:02:01,115 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
-2021-10-06 12:18:16,822 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m45s693ms).
-2021-10-06 12:34:13,016 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m9s933ms).
-2021-10-06 13:14:41,803 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=40m28s787ms).
-2021-10-06 13:58:10,451 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m58s331ms).
-2021-10-06 14:24:12,434 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m31s863ms).
-2021-10-06 14:26:04,045 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m9s189ms).
-2021-10-06 14:41:05,408 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m31s355ms).
-2021-10-06 14:52:24,803 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m19s395ms).
-2021-10-06 16:04:19,729 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m24s170ms).
-2021-10-06 17:53:27,342 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h5m7s182ms).
-2021-10-06 18:12:26,325 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m19s641ms).
-2021-10-06 18:29:50,849 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m24s364ms).
-2021-10-06 18:58:58,223 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m37s364ms).
-2021-10-07 02:08:55,070 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h22s445ms).
-2021-10-07 08:09:17,814 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h22s734ms).
-2021-10-07 10:53:41,468 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h44m23s660ms).
-2021-10-07 12:50:19,796 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m32s398ms).
-2021-10-07 13:02:14,254 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m24s449ms).
-2021-10-07 13:24:31,025 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m16s694ms).
-2021-10-07 13:37:28,135 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m57s98ms).
-2021-10-07 13:56:00,586 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m32s451ms).
-2021-10-07 13:57:48,444 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m47s858ms).
+2021-10-08 13:22:55,515 [INFO] from application in ForkJoinPool-1-worker-9 - Creating Pool for datasource 'default'
+2021-10-08 13:22:56,045 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-9 - Database [default] connected at jdbc:mysql://localhost:3306/cs7340_test?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2021-10-08 13:22:57,784 [INFO] from play.api.Play in ForkJoinPool-1-worker-9 - Application started (Dev)
+2021-10-08 13:25:52,256 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2021-10-08 13:25:52,495 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2021-10-08 13:25:52,527 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:mysql://localhost:3306/cs7340_test?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2021-10-08 13:25:52,684 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2021-10-08 13:26:25,006 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2021-10-08 13:26:25,160 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2021-10-08 13:26:25,178 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost:3306/cs7340_test?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2021-10-08 13:26:25,309 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
+2021-10-08 14:36:41,475 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-3 housekeeper - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=38m15s628ms890µs900ns).

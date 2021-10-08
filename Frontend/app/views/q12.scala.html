@@ -1,4 +1,4 @@
-@(message: String)
+@(articles: List[List[String]])
 <!DOCTYPE html>
 <html>
 
@@ -28,18 +28,43 @@
         </header>
 
         <div>
-            <p class="focused" style="font-size: 20px;
-                color: #3F51B5">
-                @message
-            </p>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Conference</th>
+                    <th>Publisher</th>
+                    <th>Year</th>
+                    <th>Journal</th>
+                    <th>Volume</th>
+                    <th>Issue</th>
+                    <th>Pages</th>
+                    <th>URL</th>
+                    <th>EE</th>
+                    <th>CrossRef</th>
+                    <th>ISBN</th>
+                </tr>
+
+
+                @for(article <- articles){
+                    <tr>
+                    @for(element <- article){
+
+                        <td>@element</td>
+
+                    }
+                    </tr>
+                }
+
+
+            </table>
 
         </div>
 
         <form action = "@routes.HomeController.q12Handler()" method="GET">
             <label>Journal name</label>
             <input type = "text" maxlength="100" id="title" name="title">
-            <label>Year</label>
-            <input type = "text" maxlength="100" id="year" name="year">
+            <label>Volume</label>
+            <input type = "text" maxlength="100" id="volume" name="volume">
             <label>Journal issue</label>
             <input type = "text" maxlength="100" id="issue" name="issue">
             <button id="api-get-page"  class="button" type="submit">1.2 Journal Search</button>

@@ -1,6 +1,8 @@
 package models;
 
+import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Model;
+import com.avaje.ebean.SqlRow;
 import play.data.validation.Constraints;
 
 import javax.persistence.*;
@@ -63,9 +65,17 @@ public class Papers {
                         .eq("title", name)
                         .findUnique();
 
-        System.out.println(paper.authors.get(0).author_name);
-
         return paper;
+    }
+
+    public static List<SqlRow> findByJournal(String title, String volume, String issue){
+
+        String sql = "select * from papers where journal = '" + title + "' and  volume = "+ volume +" and number =" + issue +";";
+        System.out.println(sql);
+
+        List<SqlRow> papers = Ebean.createSqlQuery("select * from papers where journal = '" + title + "' and  volume = "+ volume +" and number =" + issue +";").findList();
+
+        return papers;
     }
 
 

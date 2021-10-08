@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/andrewbrkich/Desktop/CS_7340_Lab2/ebean-backend/conf/routes
-// @DATE:Tue Oct 05 13:22:32 CDT 2021
+// @SOURCE:C:/Users/User/Desktop/8391/lab2/ebean-backend/conf/routes
+// @DATE:Fri Oct 08 12:19:51 CDT 2021
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -29,6 +29,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "paper"})
+        }
+      """
+    )
+  
+    // @LINE:10
+    def journalSearch: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PaperController.journalSearch",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "journal"})
         }
       """
     )

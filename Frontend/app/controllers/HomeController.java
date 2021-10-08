@@ -1,19 +1,18 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.data.Form;
 import play.data.FormFactory;
-import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.libs.concurrent.HttpExecutionContext;
 import play.libs.ws.WSResponse;
-import play.twirl.api.Html;
 import views.html.*;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.CompletionStage;
 
 /**
@@ -77,9 +76,53 @@ public class HomeController extends Controller {
 
     }
 
-    public Result query12(){return ok(views.html.q12.render(""));}
-    public Result q12Handler(){
-        return ok(views.html.q12.render("testing 123"));
+    public Result query12(){return ok(views.html.q12.render(new ArrayList<List<String>>()));}
+    public CompletionStage<Result> q12Handler(){
+        Form<Journal> q12Form = formFactory.form(Journal.class).bindFromRequest();
+
+        List<List<String>> nullList = new ArrayList<List<String>>();
+
+        if (q12Form.get().getTitle() == null){
+            return (CompletionStage<Result>) ok(views.html.q12.render(new ArrayList<List<String>>()));
+        }
+
+        return (CompletionStage<Result>) q12Form.get().checkJournal().thenApplyAsync((WSResponse r)->{
+            if (r.getStatus() == 200 && r.asJson() != null) {
+
+                List<List<String>> outList = new ArrayList<List<String>>();
+
+                JsonNode response = r.asJson();
+                Iterator it = response.fieldNames();
+                while(it.hasNext()){
+                    List<String> paperList = new ArrayList<String>();
+                    String papertitle = it.next().toString();
+
+                    JsonNode paperInfo = response.get(papertitle);
+
+                    paperList.add(papertitle);
+                    paperList.add(paperInfo.get("Conference").toString());
+                    paperList.add(paperInfo.get("Publisher").toString());
+                    paperList.add(paperInfo.get("Year").toString());
+                    paperList.add(paperInfo.get("Journal").toString());
+                    paperList.add(paperInfo.get("Volume").toString());
+                    paperList.add(paperInfo.get("Number").toString());
+                    paperList.add(paperInfo.get("Pages").toString());
+                    paperList.add(paperInfo.get("URL").toString());
+                    paperList.add(paperInfo.get("EE").toString());
+                    paperList.add(paperInfo.get("CrossRef").toString());
+                    paperList.add(paperInfo.get("ISBN").toString());
+
+                    outList.add(paperList);
+
+                }
+
+                return ok(views.html.q12.render(outList));
+
+            }else {
+                return ok(views.html.q12.render(nullList));
+            }
+        });
+
     }
 
     public Result query13(){return ok(views.html.q13.render(""));}
