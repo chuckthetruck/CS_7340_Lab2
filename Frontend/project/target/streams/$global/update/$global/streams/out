@@ -13271,7 +13271,7 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.7!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 1726ms :: artifacts dl 38ms
+[debug] :: resolution report :: resolve 1190ms :: artifacts dl 66ms
 [debug] 	report for default#frontend-build;0.1-SNAPSHOT compile produced in /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-compile.xml
 [debug] 	report for default#frontend-build;0.1-SNAPSHOT runtime produced in /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-runtime.xml
 [debug] 	report for default#frontend-build;0.1-SNAPSHOT test produced in /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-test.xml
@@ -13285,7 +13285,7 @@
 [debug] 	report for default#frontend-build;0.1-SNAPSHOT docs produced in /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-docs.xml
 [debug] 	report for default#frontend-build;0.1-SNAPSHOT pom produced in /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-pom.xml
 [debug] 	report for default#frontend-build;0.1-SNAPSHOT scala-tool produced in /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-frontend-build-scala-tool.xml
-[debug] 	resolve done (1726ms resolve - 38ms download)
+[debug] 	resolve done (1190ms resolve - 66ms download)
 [info] Done updating.
 [warn] Found version conflict(s) in library dependencies; some are suspected to be binary incompatible:
 [warn] 
