@@ -19,8 +19,10 @@ CREATE TABLE PapersToAuthors( paper_id int, author_id int, foreign KEY(paper_id)
 
 After creating those three tables you can run DatabaseSubmission.java file located in the "XMLParser/src" sub folder. 
 
-**As a Note there are temp usernames and passwords saved for the purposed of testing located on Line 16 of DatabaseSubmission.java and Line 146 of DatabaseQueries.java which may need to be changed for your connection**
+**Remember to Change the username and passweord of the backeend at Lines 15 and 16 of the aplication.conf**
 
 # Running the GUI
 
 After running the backend and frontend Play 2 Java frameworks, you will be greeted with two screens in your localhost. The Frontend screen has the UI for the queries. There are Part 1 and Part 2 Queries with buttons for each of their respective queries. 
+
+For Queries 1.3 and 1.4 the outputs are on the terminal of the backend as we could not figure out how to move them to the frontend without errors crashing the application.
