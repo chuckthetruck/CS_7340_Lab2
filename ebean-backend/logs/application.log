@@ -1,12 +1,12 @@
-2021-10-08 17:12:39,516 [INFO] from application in ForkJoinPool-1-worker-25 - Creating Pool for datasource 'default'
-2021-10-08 17:12:39,654 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-25 - Database [default] connected at jdbc:mysql://localhost:3306/cs7340_test?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-2021-10-08 17:12:40,174 [INFO] from play.api.Play in ForkJoinPool-1-worker-25 - Application started (Dev)
-2021-10-08 17:25:42,413 [ERROR] from application in application-akka.actor.default-dispatcher-9 - 
+2021-10-08 21:04:23,433 [INFO] from application in ForkJoinPool-1-worker-25 - Creating Pool for datasource 'default'
+2021-10-08 21:04:23,566 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-25 - Database [default] connected at jdbc:mysql://localhost:3306/cs7340_test?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2021-10-08 21:04:24,004 [INFO] from play.api.Play in ForkJoinPool-1-worker-25 - Application started (Dev)
+2021-10-08 21:09:34,577 [ERROR] from application in application-akka.actor.default-dispatcher-7 - 
 
-! @7laffdmao - Internal server error, for (POST) [/journal] ->
+! @7lagio2cg - Internal server error, for (POST) [/authoryear] ->
  
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: Query threw SQLException:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and number =' at line 1 Query was:
-select * from papers where journal = '' and  volume =  and number =;
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: Query threw SQLException:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 Query was:
+SELECT title, book_title, pages, year, url, ee, publisher, journal, volume, number, crossref, isbn  FROM papers p inner join paperstoauthors pa on p.paper_id = pa.paper_id inner join authors a on pa.author_id = a.author_id where a.author_name = '' and p.year =;
 
 ]]
 	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:293)
@@ -39,18 +39,18 @@ select * from papers where journal = '' and  volume =  and number =;
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: javax.persistence.PersistenceException: Query threw SQLException:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and number =' at line 1 Query was:
-select * from papers where journal = '' and  volume =  and number =;
+Caused by: javax.persistence.PersistenceException: Query threw SQLException:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 Query was:
+SELECT title, book_title, pages, year, url, ee, publisher, journal, volume, number, crossref, isbn  FROM papers p inner join paperstoauthors pa on p.paper_id = pa.paper_id inner join authors a on pa.author_id = a.author_id where a.author_name = '' and p.year =;
 
 
 	at com.avaje.ebeaninternal.server.query.DefaultRelationalQueryEngine.findMany(DefaultRelationalQueryEngine.java:167)
 	at com.avaje.ebeaninternal.server.core.RelationalQueryRequest.findList(RelationalQueryRequest.java:69)
 	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1439)
 	at com.avaje.ebeaninternal.server.querydefn.DefaultRelationalQuery.findList(DefaultRelationalQuery.java:77)
-	at models.Papers.findByJournal(Papers.java:76)
-	at controllers.PaperController.journalSearch(PaperController.java:65)
-	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$3.apply(Routes.scala:161)
-	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$3$$anonfun$apply$3.apply(Routes.scala:161)
+	at models.Papers.findByAuthorYear(Papers.java:85)
+	at controllers.PaperController.authorNameYearSearch(PaperController.java:98)
+	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(Routes.scala:167)
+	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$4$$anonfun$apply$4.apply(Routes.scala:167)
 	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:157)
 	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:156)
 	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$14$$anon$3$$anon$1.invocation(HandlerInvoker.scala:136)
@@ -76,7 +76,7 @@ select * from papers where journal = '' and  volume =  and number =;
 	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:103)
 	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253)
 	... 14 common frames omitted
-Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and number =' at line 1
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
@@ -86,7 +86,3 @@ Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL synta
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
 	at com.avaje.ebeaninternal.server.query.DefaultRelationalQueryEngine.findMany(DefaultRelationalQueryEngine.java:95)
 	... 45 common frames omitted
-2021-10-08 18:48:13,942 [INFO] from application in application-akka.actor.default-dispatcher-16 - Shutting down connection pool.
-2021-10-08 18:48:14,003 [INFO] from application in application-akka.actor.default-dispatcher-16 - Creating Pool for datasource 'default'
-2021-10-08 18:48:14,010 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-16 - Database [default] connected at jdbc:mysql://localhost:3306/cs7340_test?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-2021-10-08 18:48:14,065 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-16 - Application started (Dev)

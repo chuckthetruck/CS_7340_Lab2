@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 /**
@@ -84,7 +85,8 @@ public class HomeController extends Controller {
         List<List<String>> nullList = new ArrayList<List<String>>();
 
         if (q12Form.get().getTitle() == null){
-            return (CompletionStage<Result>) ok(views.html.q12.render(new ArrayList<List<String>>()));
+            System.out.println("Test return in q12");
+            return (CompletionStage<Result>) ok(q12.render(new ArrayList<List<String>>()));
         }
 
         return q12Form.get().checkJournal().thenApplyAsync((WSResponse r)->{
@@ -128,16 +130,15 @@ public class HomeController extends Controller {
 
     public Result query13(){return ok(views.html.q13.render(new ArrayList<List<String>>()));}
     public Result q13Handler(){
+
         Form<AuthorYear> q13Form = formFactory.form(AuthorYear.class).bindFromRequest();
-
         CompletionStage<WSResponse> test =  q13Form.get().checkAuthorYear();
-        System.out.println();
-        return ok(q13.render(new ArrayList<List<String>>()));
+        return ok(views.html.q13.render(new ArrayList<List<String>>()));
 
-       /* List<List<String>> nullList = new ArrayList<List<String>>();
+       /*List<List<String>> nullList = new ArrayList<List<String>>();
 
         if (q13Form.get().getName() == null){
-            return (CompletionStage<Result>) ok(views.html.q12.render(new ArrayList<List<String>>()));
+            return (CompletionStage<Result>) ok(views.html.q13.render(new ArrayList<List<String>>()));
         }
 
         return q13Form.get().checkAuthorYear().thenApplyAsync((WSResponse r)->{
@@ -170,20 +171,21 @@ public class HomeController extends Controller {
 
                 }
 
-                return ok(views.html.q12.render(outList));
+                return ok(views.html.q13.render(outList));
 
             }else {
-                return ok(views.html.q12.render(nullList));
+                return ok(views.html.q13.render(nullList));
             }
         });*/
     }
 
     public Result query14(){return ok(views.html.q14.render(""));}
-    public CompletionStage<Result> q14Handler(){
-        /*CompletionStage<WSResponse> test = ProductiveAuthors.getProdAuthors();
+    public Result q14Handler(){
+        CompletionStage<WSResponse> test = ProductiveAuthors.getProdAuthors();
         System.out.println();
-        return ok(q14.render("This Didn't Worked"));*/
-        return ProductiveAuthors.getProdAuthors().thenApplyAsync((WSResponse r)-> {
+        return ok(q14.render("This Didn't Worked"));
+
+        /*return ProductiveAuthors.getProdAuthors().thenApplyAsync((WSResponse r)-> {
             if (r.getStatus() == 200 && r.asJson() != null) {
                 List<List<String>> outList = new ArrayList<List<String>>();
                 JsonNode response = r.asJson();
@@ -199,7 +201,7 @@ public class HomeController extends Controller {
 
             }
             return ok(views.html.q14.render("This Didn't Worked"));
-        });
+        });*/
     }
 
     public Result query15(){return ok(views.html.q15.render(""));}
