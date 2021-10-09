@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/User/Desktop/8391/lab2/ebean-backend/conf/routes
-// @DATE:Fri Oct 08 12:19:51 CDT 2021
+// @SOURCE:C:/Users/CJ/Desktop/8391/CS_7340_Lab2/ebean-backend/conf/routes
+// @DATE:Fri Oct 08 17:12:35 CDT 2021
 
 
 package router {

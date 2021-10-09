@@ -4,7 +4,7 @@
 		module="ebean-backend$sources_2.11"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20211006110631"
+		publication="20211008144412"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

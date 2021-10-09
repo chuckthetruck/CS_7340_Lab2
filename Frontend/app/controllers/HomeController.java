@@ -26,6 +26,7 @@ public class HomeController extends Controller {
     private FormFactory formFactory;
     private Iterator it;
 
+
     @Inject
     public HomeController(FormFactory formFactory) {
         this.formFactory = formFactory;
@@ -86,7 +87,7 @@ public class HomeController extends Controller {
             return (CompletionStage<Result>) ok(views.html.q12.render(new ArrayList<List<String>>()));
         }
 
-        return (CompletionStage<Result>) q12Form.get().checkJournal().thenApplyAsync((WSResponse r)->{
+        return q12Form.get().checkJournal().thenApplyAsync((WSResponse r)->{
             if (r.getStatus() == 200 && r.asJson() != null) {
 
                 List<List<String>> outList = new ArrayList<List<String>>();
@@ -125,14 +126,80 @@ public class HomeController extends Controller {
 
     }
 
-    public Result query13(){return ok(views.html.q13.render(""));}
+    public Result query13(){return ok(views.html.q13.render(new ArrayList<List<String>>()));}
     public Result q13Handler(){
-        return ok(views.html.q13.render("testing 123"));
+        Form<AuthorYear> q13Form = formFactory.form(AuthorYear.class).bindFromRequest();
+
+        CompletionStage<WSResponse> test =  q13Form.get().checkAuthorYear();
+        System.out.println();
+        return ok(q13.render(new ArrayList<List<String>>()));
+
+       /* List<List<String>> nullList = new ArrayList<List<String>>();
+
+        if (q13Form.get().getName() == null){
+            return (CompletionStage<Result>) ok(views.html.q12.render(new ArrayList<List<String>>()));
+        }
+
+        return q13Form.get().checkAuthorYear().thenApplyAsync((WSResponse r)->{
+            if (r.getStatus() == 200 && r.asJson() != null) {
+
+                List<List<String>> outList = new ArrayList<List<String>>();
+
+                JsonNode response = r.asJson();
+                Iterator it = response.fieldNames();
+                while(it.hasNext()){
+                    List<String> paperList = new ArrayList<String>();
+                    String papertitle = it.next().toString();
+
+                    JsonNode paperInfo = response.get(papertitle);
+
+                    paperList.add(papertitle);
+                    paperList.add(paperInfo.get("Conference").toString());
+                    paperList.add(paperInfo.get("Publisher").toString());
+                    paperList.add(paperInfo.get("Year").toString());
+                    paperList.add(paperInfo.get("Journal").toString());
+                    paperList.add(paperInfo.get("Volume").toString());
+                    paperList.add(paperInfo.get("Number").toString());
+                    paperList.add(paperInfo.get("Pages").toString());
+                    paperList.add(paperInfo.get("URL").toString());
+                    paperList.add(paperInfo.get("EE").toString());
+                    paperList.add(paperInfo.get("CrossRef").toString());
+                    paperList.add(paperInfo.get("ISBN").toString());
+
+                    outList.add(paperList);
+
+                }
+
+                return ok(views.html.q12.render(outList));
+
+            }else {
+                return ok(views.html.q12.render(nullList));
+            }
+        });*/
     }
 
     public Result query14(){return ok(views.html.q14.render(""));}
-    public Result q14Handler(){
-        return ok(views.html.q14.render("testing 123"));
+    public CompletionStage<Result> q14Handler(){
+        /*CompletionStage<WSResponse> test = ProductiveAuthors.getProdAuthors();
+        System.out.println();
+        return ok(q14.render("This Didn't Worked"));*/
+        return ProductiveAuthors.getProdAuthors().thenApplyAsync((WSResponse r)-> {
+            if (r.getStatus() == 200 && r.asJson() != null) {
+                List<List<String>> outList = new ArrayList<List<String>>();
+                JsonNode response = r.asJson();
+                Iterator it = response.fieldNames();
+                while(it.hasNext()){
+                    List<String> authorList = new ArrayList<String>();
+                    String authorName = it.next().toString();
+                    authorList.add(authorName);
+                    authorList.add(response.get(authorName).toString());
+                }
+
+                return ok(views.html.q14.render("This Worked"));
+
+            }
+            return ok(views.html.q14.render("This Didn't Worked"));
+        });
     }
 
     public Result query15(){return ok(views.html.q15.render(""));}

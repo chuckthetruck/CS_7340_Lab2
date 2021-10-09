@@ -73,10 +73,29 @@ public class Papers {
         String sql = "select * from papers where journal = '" + title + "' and  volume = "+ volume +" and number =" + issue +";";
         System.out.println(sql);
 
-        List<SqlRow> papers = Ebean.createSqlQuery("select * from papers where journal = '" + title + "' and  volume = "+ volume +" and number =" + issue +";").findList();
+        List<SqlRow> papers = Ebean.createSqlQuery(sql).findList();
 
         return papers;
     }
 
+    public static List<SqlRow> findByAuthorYear(String name, String year){
+        String sql = "SELECT title, book_title, pages, year, url, ee, publisher, journal, volume, number, crossref, isbn  FROM papers p inner join paperstoauthors pa on p.paper_id = pa.paper_id inner join authors a on pa.author_id = a.author_id where a.author_name = '" + name + "' and p.year =" + year + ";";
+        System.out.println(sql);
+
+        List<SqlRow> papers = Ebean.createSqlQuery(sql).findList();
+
+        return papers;
+    }
+
+    public static List<SqlRow> productiveAuthors(){
+
+        String sql = "select author_name, count(author_name) as count from authors a inner join paperstoauthors pa on pa.author_id = a.author_id group by a.author_name having count(author_name) >= 10 order by count(author_name) desc;";
+        System.out.println(sql);
+
+        List<SqlRow> prodAuth = Ebean.createSqlQuery(sql).findList();
+
+        return prodAuth;
+
+    }
 
 }

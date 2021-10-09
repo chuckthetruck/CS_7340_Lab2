@@ -8,3 +8,7 @@ GET     /                           controllers.HomeController.index
 POST    /paper                      controllers.PaperController.paperSearch()
 
 POST    /journal                    controllers.PaperController.journalSearch()
+
+POST    /authoryear                 controllers.PaperController.authorNameYearSearch()
+
+POST    /productiveauthors          controllers.PaperController.productiveAuthors()

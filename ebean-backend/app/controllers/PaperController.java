@@ -62,9 +62,6 @@ public class PaperController extends Controller {
         String volume = req.get("volume").asText();
         String issue = req.get("issue").asText();
 
-        System.out.println("Here");
-
-
         List<SqlRow> papers = Papers.findByJournal(title,volume,issue);
         for(SqlRow row: papers){
             ObjectNode paperInfo = Json.newObject();
@@ -84,6 +81,53 @@ public class PaperController extends Controller {
 
         }
         // System.out.println(papers.get("title"));
+
+        return ok(res);
+
+    }
+
+    public Result authorNameYearSearch(){
+
+        JsonNode req = request().body().asJson();
+        ObjectNode res = Json.newObject();
+        String name = req.get("name").asText();
+        String year = req.get("year").asText();
+
+        System.out.println("Author Name Search");
+
+        List<SqlRow> papers = Papers.findByAuthorYear(name,year);
+        for(SqlRow row: papers){
+            System.out.println(row.get("title").toString());
+            ObjectNode paperInfo = Json.newObject();
+            paperInfo.put("Conference", (String) row.get("book_title"));
+            paperInfo.put("Publisher", (String) row.get("publisher"));
+            paperInfo.put("Year",(String) row.get("year"));
+            paperInfo.put("Journal",(String) row.get("journal"));
+            paperInfo.put("Volume", (String) row.get("volume"));
+            paperInfo.put("Number", (String) row.get("number"));
+            paperInfo.put("Pages", (String) row.get("pages"));
+            paperInfo.put("URL", (String) row.get("url"));
+            paperInfo.put("EE", (String) row.get("ee"));
+            paperInfo.put("CrossRef",(String) row.get("crossref"));
+            paperInfo.put("ISBN",(String) row.get("isbn"));
+
+            res.put((String) row.get("title"),paperInfo);
+
+        }
+        // System.out.println(papers.get("title"));
+
+        return ok(res);
+
+    }
+
+    public Result productiveAuthors(){
+        ObjectNode res = Json.newObject();
+        List<SqlRow> prodAuth = Papers.productiveAuthors();
+        for(SqlRow row: prodAuth){
+            System.out.println(row.getString("author_name") + ":\t" + row.getString("count"));
+
+            res.put(row.getString("author_name"),row.getString("count"));
+        }
 
         return ok(res);
 

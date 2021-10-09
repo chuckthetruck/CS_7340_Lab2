@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/User/Desktop/8391/lab2/ebean-backend/conf/routes
-// @DATE:Fri Oct 08 12:19:51 CDT 2021
+// @SOURCE:C:/Users/CJ/Desktop/8391/CS_7340_Lab2/ebean-backend/conf/routes
+// @DATE:Fri Oct 08 17:12:35 CDT 2021
 
 package router
 
@@ -46,6 +46,8 @@ class Routes(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """paper""", """controllers.PaperController.paperSearch()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """journal""", """controllers.PaperController.journalSearch()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """authoryear""", """controllers.PaperController.authorNameYearSearch()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """productiveauthors""", """controllers.PaperController.productiveAuthors()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -104,6 +106,40 @@ class Routes(
     )
   )
 
+  // @LINE:12
+  private[this] lazy val controllers_PaperController_authorNameYearSearch3_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("authoryear")))
+  )
+  private[this] lazy val controllers_PaperController_authorNameYearSearch3_invoker = createInvoker(
+    PaperController_1.authorNameYearSearch(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PaperController",
+      "authorNameYearSearch",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """authoryear"""
+    )
+  )
+
+  // @LINE:14
+  private[this] lazy val controllers_PaperController_productiveAuthors4_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("productiveauthors")))
+  )
+  private[this] lazy val controllers_PaperController_productiveAuthors4_invoker = createInvoker(
+    PaperController_1.productiveAuthors(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PaperController",
+      "productiveAuthors",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """productiveauthors"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -123,6 +159,18 @@ class Routes(
     case controllers_PaperController_journalSearch2_route(params) =>
       call { 
         controllers_PaperController_journalSearch2_invoker.call(PaperController_1.journalSearch())
+      }
+  
+    // @LINE:12
+    case controllers_PaperController_authorNameYearSearch3_route(params) =>
+      call { 
+        controllers_PaperController_authorNameYearSearch3_invoker.call(PaperController_1.authorNameYearSearch())
+      }
+  
+    // @LINE:14
+    case controllers_PaperController_productiveAuthors4_route(params) =>
+      call { 
+        controllers_PaperController_productiveAuthors4_invoker.call(PaperController_1.productiveAuthors())
       }
   }
 }
