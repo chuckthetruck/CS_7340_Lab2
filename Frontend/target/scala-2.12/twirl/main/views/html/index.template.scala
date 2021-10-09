@@ -31,8 +31,7 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 /*2.6*/import java.math.BigInteger;var i = 0
 
 
-Seq[Any](format.raw/*1.19*/("""
-    """),format.raw/*3.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
 <html>
     <body>
 
@@ -64,11 +63,11 @@ Seq[Any](format.raw/*1.19*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-10-08T14:45:41.038
-                  SOURCE: C:/Users/CJ/Desktop/8391/CS_7340_Lab2/Frontend/app/views/index.scala.html
-                  HASH: b341f8272ca1f98330c30c30b882125d527a5587
-                  MATRIX: 948->1|1038->25|1105->18|1137->64|1483->383|1511->390
-                  LINES: 28->1|31->2|34->1|35->3|45->13|45->13
+                  DATE: 2021-10-08T21:53:44.501
+                  SOURCE: /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/app/views/index.scala.html
+                  HASH: 11f3681c379e97c31ea7f186c6f828467a6dffd2
+                  MATRIX: 948->1|1038->24|1104->19|1134->62|1470->371|1498->378
+                  LINES: 28->1|31->2|34->2|34->3|44->13|44->13
                   -- GENERATED --
               */
           

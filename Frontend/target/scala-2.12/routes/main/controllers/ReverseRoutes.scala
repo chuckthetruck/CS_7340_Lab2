@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/CJ/Desktop/8391/CS_7340_Lab2/Frontend/conf/routes
-// @DATE:Fri Oct 08 14:45:40 CDT 2021
+// @SOURCE:/Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/conf/routes
+// @DATE:Fri Oct 08 21:53:43 CDT 2021
 
 import play.api.mvc.Call
 

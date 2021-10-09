@@ -30,8 +30,7 @@ object q15 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFo
       {
 
 
-Seq[Any](format.raw/*1.19*/("""
-"""),format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
 
     <style>
@@ -56,18 +55,26 @@ Seq[Any](format.raw/*1.19*/("""
                 color: #57a957">
                 Query 1.5 Conference Search
             </h1>
-
+            <h4 class="focused" style="font-size: 22px;
+                color: #57a957">
+                Input ICWS or SCC for Conference
+            </h4>
+            <h4 class="focused" style="font-size: 22px;
+                color: #57a957">
+                Input Year Between 2003 - 2020
+            </h4>
         </header>
+
 
         <div>
             <p class="focused" style="font-size: 20px;
                 color: #3F51B5">
-                """),_display_(/*33.18*/message),format.raw/*33.25*/("""
-            """),format.raw/*34.13*/("""</p>
+                """),_display_(/*41.18*/message),format.raw/*41.25*/("""
+            """),format.raw/*42.13*/("""</p>
 
         </div>
 
-        <form action = """"),_display_(/*38.26*/routes/*38.32*/.HomeController.q15Handler()),format.raw/*38.60*/("""" method="GET">
+        <form action = """"),_display_(/*46.26*/routes/*46.32*/.HomeController.q15Handler()),format.raw/*46.60*/("""" method="GET">
             <label>Conference</label>
             <input type = "text" maxlength="100" id="conference" name="conference">
             <label>Year</label>
@@ -91,11 +98,11 @@ Seq[Any](format.raw/*1.19*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-10-08T14:45:41.091
-                  SOURCE: C:/Users/CJ/Desktop/8391/CS_7340_Lab2/Frontend/app/views/q15.scala.html
-                  HASH: cf288d566da6198a41e8bbe0b7ef50e376c7f93f
-                  MATRIX: 946->1|1058->18|1086->20|1173->80|1201->81|1246->99|1644->469|1673->470|1706->476|2092->835|2120->842|2162->856|2240->907|2255->913|2304->941
-                  LINES: 28->1|33->1|34->2|38->6|38->6|39->7|49->17|49->17|50->18|65->33|65->33|66->34|70->38|70->38|70->38
+                  DATE: 2021-10-08T21:53:44.273
+                  SOURCE: /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/app/views/q15.scala.html
+                  HASH: d7b1700e433045fa4be4d78d1ac6195071aa38e9
+                  MATRIX: 946->1|1057->19|1140->75|1168->76|1212->93|1600->453|1629->454|1661->459|2342->1113|2370->1120|2411->1133|2485->1180|2500->1186|2549->1214
+                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|72->41|72->41|73->42|77->46|77->46|77->46
                   -- GENERATED --
               */
           

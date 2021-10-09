@@ -22,16 +22,15 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object q23 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object q23 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template4[String,Integer,Integer,String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(message: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(message: String, year1: Integer, year2: Integer, conf: String):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.19*/("""
-"""),format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
 <html>
 
@@ -67,30 +66,40 @@ Seq[Any](format.raw/*1.19*/("""
                 color: #57a957">
                 Query 2.3 Map Search
             </h1>
+            <h4 class="focused" style="font-size: 22px;
+                color: #57a957">
+                Input ICWS or SCC for Conference
+            </h4>
+            <h4 class="focused" style="font-size: 22px;
+                color: #57a957">
+                Input Year Range Between 2003 - 2020
+            </h4>
 
         </header>
 
         <div>
             <p class="focused" style="font-size: 20px;
                 color: #3F51B5">
-                """),_display_(/*44.18*/message),format.raw/*44.25*/("""
-            """),format.raw/*45.13*/("""</p>
+            """),_display_(/*52.14*/message),format.raw/*52.21*/("""
+            """),format.raw/*53.13*/("""</p>
 
         </div>
 
-        <form action = """"),_display_(/*49.26*/routes/*49.32*/.HomeController.q23Handler()),format.raw/*49.60*/("""" method="GET">
+        <form action = """"),_display_(/*57.26*/routes/*57.32*/.HomeController.q23Handler()),format.raw/*57.60*/("""" method="GET">
             <label>Conference</label>
             <input type = "text" maxlength="100" id="conference" name="conference">
-            <label>Years</label>
-            <input type = "text" maxlength="100" id="years" name="years">
+            <label>Year1</label>
+            <input type = "text" maxlength="100" id="year1" name="year1">
+            <label>Year2</label>
+            <input type = "text" maxlength="100" id="year2" name="year2">
             <button id="api-get-page"  class="button" type="submit">2.3 Map Search</button>
         </form>
 
         <div id="mapid"></div>
         <script>
 
-                let icws = """),format.raw/*60.28*/("""{"""),format.raw/*60.29*/("""
-                    """),format.raw/*61.21*/("""LVx: 36.1699,//vegas 2003
+                let icws = """),format.raw/*70.28*/("""{"""),format.raw/*70.29*/("""
+                    """),format.raw/*71.21*/("""LVx: 36.1699,//vegas 2003
                     LVy: -115.1398,
                     SDx: 32.7157,//san diego 2004
                     SDy: -117.611,
@@ -126,10 +135,10 @@ Seq[Any](format.raw/*1.19*/("""
                     MIy: 9.1900,
                     BC2x: 39.9042,//beijing china 2020 (duplicate)
                     BC2y: 116.4074,
-                """),format.raw/*97.17*/("""}"""),format.raw/*97.18*/("""
+                """),format.raw/*107.17*/("""}"""),format.raw/*107.18*/("""
 
-                """),format.raw/*99.17*/("""let scc = """),format.raw/*99.27*/("""{"""),format.raw/*99.28*/("""
-                    """),format.raw/*100.21*/("""LVx: 36.1699,//vegas 2003
+                """),format.raw/*109.17*/("""let scc = """),format.raw/*109.27*/("""{"""),format.raw/*109.28*/("""
+                    """),format.raw/*110.21*/("""LVx: 36.1699,//vegas 2003
                     LVy: -115.1398,
                     SDx: 32.7157,//san diego 2004
                     SDy: -117.611,
@@ -167,32 +176,123 @@ Seq[Any](format.raw/*1.19*/("""
                     BC2y: 116.4074,
                     //bangalore is only unique value (2009) in scc
                     //the rest of the values appear in icws with the same year
-                """),format.raw/*138.17*/("""}"""),format.raw/*138.18*/("""
+                """),format.raw/*148.17*/("""}"""),format.raw/*148.18*/("""
 
-                """),format.raw/*140.17*/("""var mymap = L.map('mapid').setView([0, 0], 2);
+                """),format.raw/*150.17*/("""var mymap = L.map('mapid').setView([0, 0], 2);
 
-                L.tileLayer('https://api.maptiler.com/maps/streets/"""),format.raw/*142.68*/("""{"""),format.raw/*142.69*/("""z"""),format.raw/*142.70*/("""}"""),format.raw/*142.71*/("""/"""),format.raw/*142.72*/("""{"""),format.raw/*142.73*/("""x"""),format.raw/*142.74*/("""}"""),format.raw/*142.75*/("""/"""),format.raw/*142.76*/("""{"""),format.raw/*142.77*/("""y"""),format.raw/*142.78*/("""}"""),format.raw/*142.79*/(""".png?key=dcj0rBj8ACT4YDvql2hH', """),format.raw/*142.111*/("""{"""),format.raw/*142.112*/("""
-                    """),format.raw/*143.21*/("""attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-                """),format.raw/*144.17*/("""}"""),format.raw/*144.18*/(""").addTo(mymap);
+                L.tileLayer('https://api.maptiler.com/maps/streets/"""),format.raw/*152.68*/("""{"""),format.raw/*152.69*/("""z"""),format.raw/*152.70*/("""}"""),format.raw/*152.71*/("""/"""),format.raw/*152.72*/("""{"""),format.raw/*152.73*/("""x"""),format.raw/*152.74*/("""}"""),format.raw/*152.75*/("""/"""),format.raw/*152.76*/("""{"""),format.raw/*152.77*/("""y"""),format.raw/*152.78*/("""}"""),format.raw/*152.79*/(""".png?key=dcj0rBj8ACT4YDvql2hH', """),format.raw/*152.111*/("""{"""),format.raw/*152.112*/("""
+                    """),format.raw/*153.21*/("""attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+                """),format.raw/*154.17*/("""}"""),format.raw/*154.18*/(""").addTo(mymap);
 
-                //var marker = L.marker([51.5, -.09]).addTo(mymap); //londok UK test marker
-                var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
-                var SD = L.marker([icws["SDx"], icws["SDy"]]).addTo(mymap);
-                var OF = L.marker([icws["OFx"], icws["OFy"]]).addTo(mymap);
-                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
-                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
-                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
-                var SC = L.marker([icws["SCx"], icws["SCy"]]).addTo(mymap);
-                var MF = L.marker([icws["MFx"], icws["MFy"]]).addTo(mymap);
-                var DC = L.marker([icws["DCx"], icws["DCy"]]).addTo(mymap);
-                var MI = L.marker([icws["MIx"], icws["MIy"]]).addTo(mymap);
-                var LA = L.marker([icws["LAx"], icws["LAy"]]).addTo(mymap);
-                var AA = L.marker([icws["AAx"], icws["AAy"]]).addTo(mymap);
-                var SL = L.marker([icws["SLx"], icws["SLy"]]).addTo(mymap);
-                var CI = L.marker([icws["CIx"], icws["CIy"]]).addTo(mymap);
-                var NY = L.marker([icws["NYx"], icws["NYy"]]).addTo(mymap);
+                if ("""),_display_(/*156.22*/conf/*156.26*/.equals("ICWS")),format.raw/*156.41*/(""")
+                """),format.raw/*157.17*/("""{"""),format.raw/*157.18*/("""
+                    """),format.raw/*158.21*/("""if ("""),_display_(/*158.26*/year1),format.raw/*158.31*/(""" """),format.raw/*158.32*/("""!= 0)
+                    """),format.raw/*159.21*/("""{"""),format.raw/*159.22*/("""
+                        """),format.raw/*160.25*/("""for (let i = """),_display_(/*160.39*/year1),format.raw/*160.44*/("""; i <= """),_display_(/*160.52*/year2),format.raw/*160.57*/("""; i++)
+                        """),format.raw/*161.25*/("""{"""),format.raw/*161.26*/("""
+                            """),format.raw/*162.29*/("""if (i == 2003)
+                                var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
+                            else if (i == 2004)
+                                var SD = L.marker([icws["SDx"], icws["SDy"]]).addTo(mymap);
+                            else if (i == 2005)
+                                var OF = L.marker([icws["OFx"], icws["OFy"]]).addTo(mymap);
+                            else if (i == 2006)
+                                var CI = L.marker([icws["CIx"], icws["CIy"]]).addTo(mymap);
+                            else if (i == 2007)
+                                var SL = L.marker([icws["SLx"], icws["SLy"]]).addTo(mymap);
+                            else if (i == 2008)
+                                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                            else if (i == 2009)
+                                var LA = L.marker([icws["LAx"], icws["LAy"]]).addTo(mymap);
+                            else if (i == 2010)
+                                var MF = L.marker([icws["MFx"], icws["MFy"]]).addTo(mymap);
+                            else if (i == 2011)
+                                var DC = L.marker([icws["DCx"], icws["DCy"]]).addTo(mymap);
+                            else if (i == 2012)
+                                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                            else if (i == 2013)
+                                var SC = L.marker([icws["SCx"], icws["SCy"]]).addTo(mymap);
+                            else if (i == 2014)
+                                var AA = L.marker([icws["AAx"], icws["AAy"]]).addTo(mymap);
+                            else if (i == 2015)
+                                var NY = L.marker([icws["NYx"], icws["NYy"]]).addTo(mymap);
+                            else if (i == 2016)
+                                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                            else if (i == 2017)
+                                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                            else if (i == 2018)
+                                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                            else if (i == 2019)
+                                var MI = L.marker([icws["MIx"], icws["MIy"]]).addTo(mymap);
+                            else if (i == 2020)
+                                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                        """),format.raw/*198.25*/("""}"""),format.raw/*198.26*/("""
+                    """),format.raw/*199.21*/("""}"""),format.raw/*199.22*/("""
+                """),format.raw/*200.17*/("""}"""),format.raw/*200.18*/("""
+                """),format.raw/*201.17*/("""else if ("""),_display_(/*201.27*/conf/*201.31*/.equals("SCC")),format.raw/*201.45*/(""")
+                """),format.raw/*202.17*/("""{"""),format.raw/*202.18*/("""
+                    """),format.raw/*203.21*/("""if ("""),_display_(/*203.26*/year1),format.raw/*203.31*/(""" """),format.raw/*203.32*/("""!= 0)
+                    """),format.raw/*204.21*/("""{"""),format.raw/*204.22*/("""
+                        """),format.raw/*205.25*/("""for (let i = """),_display_(/*205.39*/year1),format.raw/*205.44*/("""; i <= """),_display_(/*205.52*/year2),format.raw/*205.57*/("""; i++)
+                        """),format.raw/*206.25*/("""{"""),format.raw/*206.26*/("""
+                            """),format.raw/*207.29*/("""if (i == 2003)
+                                var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
+                            else if (i == 2004)
+                                var SD = L.marker([icws["SDx"], icws["SDy"]]).addTo(mymap);
+                            else if (i == 2005)
+                                var OF = L.marker([icws["OFx"], icws["OFy"]]).addTo(mymap);
+                            else if (i == 2006)
+                                var CI = L.marker([icws["CIx"], icws["CIy"]]).addTo(mymap);
+                            else if (i == 2007)
+                                var SL = L.marker([icws["SLx"], icws["SLy"]]).addTo(mymap);
+                            else if (i == 2008)
+                                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                            else if (i == 2009)
+                                var BI = L.marker([scc["BIx"], scc["BIy"]]).addTo(mymap);
+                            else if (i == 2010)
+                                var MF = L.marker([icws["MFx"], icws["MFy"]]).addTo(mymap);
+                            else if (i == 2011)
+                                var DC = L.marker([icws["DCx"], icws["DCy"]]).addTo(mymap);
+                            else if (i == 2012)
+                                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                            else if (i == 2013)
+                                var SC = L.marker([icws["SCx"], icws["SCy"]]).addTo(mymap);
+                            else if (i == 2014)
+                                var AA = L.marker([icws["AAx"], icws["AAy"]]).addTo(mymap);
+                            else if (i == 2015)
+                                var NY = L.marker([icws["NYx"], icws["NYy"]]).addTo(mymap);
+                            else if (i == 2016)
+                                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                            else if (i == 2017)
+                                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                            else if (i == 2018)
+                                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                            else if (i == 2019)
+                                var MI = L.marker([icws["MIx"], icws["MIy"]]).addTo(mymap);
+                            else if (i == 2020)
+                                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                        """),format.raw/*243.25*/("""}"""),format.raw/*243.26*/("""
+                    """),format.raw/*244.21*/("""}"""),format.raw/*244.22*/("""
+                """),format.raw/*245.17*/("""}"""),format.raw/*245.18*/("""
 
-                var BI = L.marker([scc["BIx"], scc["BIy"]]).addTo(mymap);
+                """),format.raw/*247.17*/("""//var marker = L.marker([51.5, -.09]).addTo(mymap); //londok UK test marker
+                // var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
+                // var SD = L.marker([icws["SDx"], icws["SDy"]]).addTo(mymap);
+                // var OF = L.marker([icws["OFx"], icws["OFy"]]).addTo(mymap);
+                // var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                // var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                // var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                // var SC = L.marker([icws["SCx"], icws["SCy"]]).addTo(mymap);
+                // var MF = L.marker([icws["MFx"], icws["MFy"]]).addTo(mymap);
+                // var DC = L.marker([icws["DCx"], icws["DCy"]]).addTo(mymap);
+                // var MI = L.marker([icws["MIx"], icws["MIy"]]).addTo(mymap);
+                // var LA = L.marker([icws["LAx"], icws["LAy"]]).addTo(mymap);
+                // var AA = L.marker([icws["AAx"], icws["AAy"]]).addTo(mymap);
+                // var SL = L.marker([icws["SLx"], icws["SLy"]]).addTo(mymap);
+                // var CI = L.marker([icws["CIx"], icws["CIy"]]).addTo(mymap);
+                // var NY = L.marker([icws["NYx"], icws["NYy"]]).addTo(mymap);
+                //
+                // var BI = L.marker([scc["BIx"], scc["BIy"]]).addTo(mymap);
         </script>
 
     </body>
@@ -201,9 +301,9 @@ Seq[Any](format.raw/*1.19*/("""
     }
   }
 
-  def render(message:String): play.twirl.api.HtmlFormat.Appendable = apply(message)
+  def render(message:String,year1:Integer,year2:Integer,conf:String): play.twirl.api.HtmlFormat.Appendable = apply(message,year1,year2,conf)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (message) => apply(message)
+  def f:((String,Integer,Integer,String) => play.twirl.api.HtmlFormat.Appendable) = (message,year1,year2,conf) => apply(message,year1,year2,conf)
 
   def ref: this.type = this
 
@@ -212,11 +312,11 @@ Seq[Any](format.raw/*1.19*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-10-08T14:45:41.106
-                  SOURCE: C:/Users/CJ/Desktop/8391/CS_7340_Lab2/Frontend/app/views/q23.scala.html
-                  HASH: 92717e89dc336f0daac871208d0ce35e93e37acc
-                  MATRIX: 946->1|1058->18|1086->20|1668->576|1697->577|1743->595|2141->965|2170->966|2214->982|2249->989|2278->990|2307->991|2350->1006|2379->1007|2412->1013|2791->1365|2819->1372|2861->1386|2939->1437|2954->1443|3003->1471|3472->1912|3501->1913|3551->1935|5273->3629|5302->3630|5350->3650|5388->3660|5417->3661|5468->3683|7336->5522|7366->5523|7415->5543|7561->5660|7591->5661|7621->5662|7651->5663|7681->5664|7711->5665|7741->5666|7771->5667|7801->5668|7831->5669|7861->5670|7891->5671|7953->5703|7984->5704|8035->5726|8283->5945|8313->5946
-                  LINES: 28->1|33->1|34->2|47->15|47->15|48->16|58->26|58->26|60->28|60->28|60->28|60->28|60->28|60->28|61->29|76->44|76->44|77->45|81->49|81->49|81->49|92->60|92->60|93->61|129->97|129->97|131->99|131->99|131->99|132->100|170->138|170->138|172->140|174->142|174->142|174->142|174->142|174->142|174->142|174->142|174->142|174->142|174->142|174->142|174->142|174->142|174->142|175->143|176->144|176->144
+                  DATE: 2021-10-08T21:53:44.444
+                  SOURCE: /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/app/views/q23.scala.html
+                  HASH: 2f6d57a95d2ef112fed8e24dae6425e77c74dc8d
+                  MATRIX: 969->1|1126->65|1695->608|1724->609|1769->626|2157->986|2186->987|2228->1001|2263->1008|2292->1009|2321->1010|2364->1025|2393->1026|2425->1031|3101->1680|3129->1687|3170->1700|3244->1747|3259->1753|3308->1781|3873->2318|3902->2319|3951->2340|5638->3998|5668->3999|5715->4017|5754->4027|5784->4028|5834->4049|7664->5850|7694->5851|7741->5869|7885->5984|7915->5985|7945->5986|7975->5987|8005->5988|8035->5989|8065->5990|8095->5991|8125->5992|8155->5993|8185->5994|8215->5995|8277->6027|8308->6028|8358->6049|8605->6267|8635->6268|8701->6306|8715->6310|8752->6325|8799->6343|8829->6344|8879->6365|8912->6370|8939->6375|8969->6376|9024->6402|9054->6403|9108->6428|9150->6442|9177->6447|9213->6455|9240->6460|9300->6491|9330->6492|9388->6521|11928->9032|11958->9033|12008->9054|12038->9055|12084->9072|12114->9073|12160->9090|12198->9100|12212->9104|12248->9118|12295->9136|12325->9137|12375->9158|12408->9163|12435->9168|12465->9169|12520->9195|12550->9196|12604->9221|12646->9235|12673->9240|12709->9248|12736->9253|12796->9284|12826->9285|12884->9314|15422->11823|15452->11824|15502->11845|15532->11846|15578->11863|15608->11864|15655->11882
+                  LINES: 28->1|33->2|46->15|46->15|47->16|57->26|57->26|59->28|59->28|59->28|59->28|59->28|59->28|60->29|83->52|83->52|84->53|88->57|88->57|88->57|101->70|101->70|102->71|138->107|138->107|140->109|140->109|140->109|141->110|179->148|179->148|181->150|183->152|183->152|183->152|183->152|183->152|183->152|183->152|183->152|183->152|183->152|183->152|183->152|183->152|183->152|184->153|185->154|185->154|187->156|187->156|187->156|188->157|188->157|189->158|189->158|189->158|189->158|190->159|190->159|191->160|191->160|191->160|191->160|191->160|192->161|192->161|193->162|229->198|229->198|230->199|230->199|231->200|231->200|232->201|232->201|232->201|232->201|233->202|233->202|234->203|234->203|234->203|234->203|235->204|235->204|236->205|236->205|236->205|236->205|236->205|237->206|237->206|238->207|274->243|274->243|275->244|275->244|276->245|276->245|278->247
                   -- GENERATED --
               */
           

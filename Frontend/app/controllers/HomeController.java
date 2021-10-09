@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
@@ -206,7 +207,109 @@ public class HomeController extends Controller {
 
     public Result query15(){return ok(views.html.q15.render(""));}
     public Result q15Handler(){
-        return ok(views.html.q15.render("testing 123"));
+        Form<Conference> q15Form = formFactory.form(Conference.class).bindFromRequest();
+        if (q15Form.get().conference.equals("ICWS"))
+        {
+            if (q15Form.get().year.isEmpty())
+            {
+                return ok(views.html.q15.render("Please Input valid year between 2003 - 2020"));
+            }
+            if ((Integer.parseInt(q15Form.get().year) > 2002) && (Integer.parseInt(q15Form.get().year)  < 2021))
+            {
+                if (Integer.parseInt(q15Form.get().year) == 2003)
+                    return ok(views.html.q15.render("Las Vegas, Nevada"));
+                else if (Integer.parseInt(q15Form.get().year) == 2004)
+                    return ok(views.html.q15.render("San Diego, California"));
+                else if (Integer.parseInt(q15Form.get().year) == 2005)
+                    return ok(views.html.q15.render("Orlando, Florida"));
+                else if (Integer.parseInt(q15Form.get().year) == 2006)
+                    return ok(views.html.q15.render("Chicago, Illinois"));
+                else if (Integer.parseInt(q15Form.get().year) == 2007)
+                    return ok(views.html.q15.render("Salt Lake City, Utah"));
+                else if (Integer.parseInt(q15Form.get().year) == 2008)
+                    return ok(views.html.q15.render("Beijing, China"));
+                else if (Integer.parseInt(q15Form.get().year) == 2009)
+                    return ok(views.html.q15.render("Los Angeles, California"));
+                else if (Integer.parseInt(q15Form.get().year) == 2010)
+                    return ok(views.html.q15.render("Miami, Florida"));
+                else if (Integer.parseInt(q15Form.get().year) == 2011)
+                    return ok(views.html.q15.render("Washington, DC"));
+                else if (Integer.parseInt(q15Form.get().year) == 2012)
+                    return ok(views.html.q15.render("Honolulu, Hawaii"));
+                else if (Integer.parseInt(q15Form.get().year) == 2013)
+                    return ok(views.html.q15.render("Santa Clara, California"));
+                else if (Integer.parseInt(q15Form.get().year) == 2014)
+                    return ok(views.html.q15.render("Anchorage, Alaska"));
+                else if (Integer.parseInt(q15Form.get().year) == 2015)
+                    return ok(views.html.q15.render("New York, New York"));
+                else if (Integer.parseInt(q15Form.get().year) == 2016)
+                    return ok(views.html.q15.render("San Francisco, California"));
+                else if (Integer.parseInt(q15Form.get().year) == 2017)
+                    return ok(views.html.q15.render("Honolulu, Hawaii"));
+                else if (Integer.parseInt(q15Form.get().year) == 2018)
+                    return ok(views.html.q15.render("San Francisco, California"));
+                else if (Integer.parseInt(q15Form.get().year) == 2019)
+                    return ok(views.html.q15.render("Milan, Italy"));
+                else if (Integer.parseInt(q15Form.get().year) == 2020)
+                    return ok(views.html.q15.render("Beijing, China"));
+                else
+                    return ok(views.html.q15.render("Please Input valid year between 2003 - 2020"));
+            }
+            else
+                return ok(views.html.q15.render("Please Input valid year between 2003 - 2020"));
+        }
+        else if (q15Form.get().conference.equals("SCC"))
+        {
+            if (q15Form.get().year.isEmpty())
+            {
+                return ok(views.html.q15.render("Please Input valid year between 2003 - 2020"));
+            }
+            if ((Integer.parseInt(q15Form.get().year) > 2002) && (Integer.parseInt(q15Form.get().year)  < 2021))
+            {
+                if (Integer.parseInt(q15Form.get().year) == 2003)
+                    return ok(views.html.q15.render("Las Vegas, Nevada"));
+                else if (Integer.parseInt(q15Form.get().year) == 2004)
+                    return ok(views.html.q15.render("San Diego, California"));
+                else if (Integer.parseInt(q15Form.get().year) == 2005)
+                    return ok(views.html.q15.render("Orlando, Florida"));
+                else if (Integer.parseInt(q15Form.get().year) == 2006)
+                    return ok(views.html.q15.render("Chicago, Illinois"));
+                else if (Integer.parseInt(q15Form.get().year) == 2007)
+                    return ok(views.html.q15.render("Salt Lake City, Utah"));
+                else if (Integer.parseInt(q15Form.get().year) == 2008)
+                    return ok(views.html.q15.render("Beijing, China"));
+                else if (Integer.parseInt(q15Form.get().year) == 2009)
+                    return ok(views.html.q15.render("Bangalore, India"));
+                else if (Integer.parseInt(q15Form.get().year) == 2010)
+                    return ok(views.html.q15.render("Miami, Florida"));
+                else if (Integer.parseInt(q15Form.get().year) == 2011)
+                    return ok(views.html.q15.render("Washington, DC"));
+                else if (Integer.parseInt(q15Form.get().year) == 2012)
+                    return ok(views.html.q15.render("Honolulu, Hawaii"));
+                else if (Integer.parseInt(q15Form.get().year) == 2013)
+                    return ok(views.html.q15.render("Santa Clara, California"));
+                else if (Integer.parseInt(q15Form.get().year) == 2014)
+                    return ok(views.html.q15.render("Anchorage, Alaska"));
+                else if (Integer.parseInt(q15Form.get().year) == 2015)
+                    return ok(views.html.q15.render("New York, New York"));
+                else if (Integer.parseInt(q15Form.get().year) == 2016)
+                    return ok(views.html.q15.render("San Francisco, California"));
+                else if (Integer.parseInt(q15Form.get().year) == 2017)
+                    return ok(views.html.q15.render("Honolulu, Hawaii"));
+                else if (Integer.parseInt(q15Form.get().year) == 2018)
+                    return ok(views.html.q15.render("San Francisco, California"));
+                else if (Integer.parseInt(q15Form.get().year) == 2019)
+                    return ok(views.html.q15.render("Milan, Italy"));
+                else if (Integer.parseInt(q15Form.get().year) == 2020)
+                    return ok(views.html.q15.render("Beijing, China"));
+                else
+                    return ok(views.html.q15.render("Please Input valid year between 2003 - 2020"));
+            }
+            else
+                return ok(views.html.q15.render("Please Input valid year between 2003 - 2020"));
+        }
+        else
+            return ok(views.html.q15.render("Please input valid Conference"));
     }
 
     public Result query21(){return ok(views.html.q21.render(""));}
@@ -219,9 +322,58 @@ public class HomeController extends Controller {
         return ok(views.html.q22.render("testing 123"));
     }
 
-    public Result query23(){return ok(views.html.q23.render(""));}
+    public Result query23(){return ok(views.html.q23.render("",0,0,"ICWS"));}
     public Result q23Handler(){
-        return ok(views.html.q23.render("testing 123"));
+        Form<Conference> q23Form = formFactory.form(Conference.class).bindFromRequest();
+        if (q23Form.get().conference.equals("ICWS"))
+        {
+            if (q23Form.get().year1.isEmpty())
+            {
+                return ok(views.html.q23.render("Please Input valid Year Range 2003-2020", 0, 0, "ICWS"));
+            }
+            if (q23Form.get().year2.isEmpty())
+            {
+                return ok(views.html.q23.render("Please Input valid Year Range 2003-2020",0,0, "ICWS"));
+            }
+            else
+            {
+                Conference c = new Conference();
+                int y1 = Integer.parseInt(q23Form.get().year1);
+                int y2 = Integer.parseInt(q23Form.get().year2);
+                String conf = q23Form.get().conference;
+                Vector<Integer> v = c.calculateRange(y1, y2);
+                return ok(views.html.q23.render("Please Input valid Year Range 2003-2020",y1,y2,"ICWS"));
+            }
+        }
+        else if (q23Form.get().conference.equals("SCC"))
+        {
+            if (q23Form.get().year1.isEmpty())
+            {
+                return ok(views.html.q23.render("Please Input valid Year Range 2003-2020",0,0, "SCC"));
+            }
+            if (q23Form.get().year2.isEmpty())
+            {
+                return ok(views.html.q23.render("Please Input valid Year Range 2003-2020",0,0,"SCC"));
+            }
+            else
+            {
+                if (Integer.parseInt(q23Form.get().year2) > 2020)
+                    return ok(views.html.q23.render("Please Input valid Year Range 2003-2020",0,0,"SCC"));
+                else if (Integer.parseInt(q23Form.get().year1) < 2003)
+                    return ok(views.html.q23.render("Please Input valid Year Range 2003-2020",0,0,"SCC"));
+                else
+                {
+                    Conference c = new Conference();
+                    int y1 = Integer.parseInt(q23Form.get().year1);
+                    int y2 = Integer.parseInt(q23Form.get().year2);
+                    String conf = q23Form.get().conference;
+                    Vector<Integer> v = c.calculateRange(y1, y2);
+                    return ok(views.html.q23.render("Please Input valid Year Range 2003-2020",y1,y2,"SCC"));
+                }
+            }
+        }
+        else
+            return ok(views.html.q23.render("Please Input valid Conference, ICWS or SCC",0,0,"ICWS"));
     }
 
 }

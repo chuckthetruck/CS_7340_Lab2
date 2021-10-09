@@ -30,8 +30,7 @@ object q14 extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFo
       {
 
 
-Seq[Any](format.raw/*1.19*/("""
-"""),format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
 
     <style>
@@ -87,11 +86,11 @@ Seq[Any](format.raw/*1.19*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2021-10-08T14:45:41.087
-                  SOURCE: C:/Users/CJ/Desktop/8391/CS_7340_Lab2/Frontend/app/views/q14.scala.html
-                  HASH: c5076744c8dd776d1245beaa587ece1c8e769ff0
-                  MATRIX: 946->1|1058->18|1086->20|1173->80|1201->81|1246->99|1644->469|1673->470|1706->476|2089->832|2117->839|2159->853|2237->904|2252->910|2301->938
-                  LINES: 28->1|33->1|34->2|38->6|38->6|39->7|49->17|49->17|50->18|65->33|65->33|66->34|70->38|70->38|70->38
+                  DATE: 2021-10-08T21:53:44.452
+                  SOURCE: /Users/andrewbrkich/Desktop/CS_7340_Lab2/Frontend/app/views/q14.scala.html
+                  HASH: 57e001e51cc07363f09eeadb8e8d7989001a06a5
+                  MATRIX: 946->1|1057->19|1140->75|1168->76|1212->93|1600->453|1629->454|1661->459|2029->800|2057->807|2098->820|2172->867|2187->873|2236->901
+                  LINES: 28->1|33->2|37->6|37->6|38->7|48->17|48->17|49->18|64->33|64->33|65->34|69->38|69->38|69->38
                   -- GENERATED --
               */
           

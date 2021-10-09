@@ -1,4 +1,4 @@
-@(message: String)
+@(message: String, year1: Integer, year2: Integer, conf: String)
 <!DOCTYPE html>
 
 <html>
@@ -35,13 +35,21 @@
                 color: #57a957">
                 Query 2.3 Map Search
             </h1>
+            <h4 class="focused" style="font-size: 22px;
+                color: #57a957">
+                Input ICWS or SCC for Conference
+            </h4>
+            <h4 class="focused" style="font-size: 22px;
+                color: #57a957">
+                Input Year Range Between 2003 - 2020
+            </h4>
 
         </header>
 
         <div>
             <p class="focused" style="font-size: 20px;
                 color: #3F51B5">
-                @message
+            @message
             </p>
 
         </div>
@@ -49,8 +57,10 @@
         <form action = "@routes.HomeController.q23Handler()" method="GET">
             <label>Conference</label>
             <input type = "text" maxlength="100" id="conference" name="conference">
-            <label>Years</label>
-            <input type = "text" maxlength="100" id="years" name="years">
+            <label>Year1</label>
+            <input type = "text" maxlength="100" id="year1" name="year1">
+            <label>Year2</label>
+            <input type = "text" maxlength="100" id="year2" name="year2">
             <button id="api-get-page"  class="button" type="submit">2.3 Map Search</button>
         </form>
 
@@ -143,24 +153,115 @@
                     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
                 }).addTo(mymap);
 
-                //var marker = L.marker([51.5, -.09]).addTo(mymap); //londok UK test marker
-                var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
-                var SD = L.marker([icws["SDx"], icws["SDy"]]).addTo(mymap);
-                var OF = L.marker([icws["OFx"], icws["OFy"]]).addTo(mymap);
-                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
-                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
-                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
-                var SC = L.marker([icws["SCx"], icws["SCy"]]).addTo(mymap);
-                var MF = L.marker([icws["MFx"], icws["MFy"]]).addTo(mymap);
-                var DC = L.marker([icws["DCx"], icws["DCy"]]).addTo(mymap);
-                var MI = L.marker([icws["MIx"], icws["MIy"]]).addTo(mymap);
-                var LA = L.marker([icws["LAx"], icws["LAy"]]).addTo(mymap);
-                var AA = L.marker([icws["AAx"], icws["AAy"]]).addTo(mymap);
-                var SL = L.marker([icws["SLx"], icws["SLy"]]).addTo(mymap);
-                var CI = L.marker([icws["CIx"], icws["CIy"]]).addTo(mymap);
-                var NY = L.marker([icws["NYx"], icws["NYy"]]).addTo(mymap);
+                if (@conf.equals("ICWS"))
+                {
+                    if (@year1 != 0)
+                    {
+                        for (let i = @year1; i <= @year2; i++)
+                        {
+                            if (i == 2003)
+                                var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
+                            else if (i == 2004)
+                                var SD = L.marker([icws["SDx"], icws["SDy"]]).addTo(mymap);
+                            else if (i == 2005)
+                                var OF = L.marker([icws["OFx"], icws["OFy"]]).addTo(mymap);
+                            else if (i == 2006)
+                                var CI = L.marker([icws["CIx"], icws["CIy"]]).addTo(mymap);
+                            else if (i == 2007)
+                                var SL = L.marker([icws["SLx"], icws["SLy"]]).addTo(mymap);
+                            else if (i == 2008)
+                                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                            else if (i == 2009)
+                                var LA = L.marker([icws["LAx"], icws["LAy"]]).addTo(mymap);
+                            else if (i == 2010)
+                                var MF = L.marker([icws["MFx"], icws["MFy"]]).addTo(mymap);
+                            else if (i == 2011)
+                                var DC = L.marker([icws["DCx"], icws["DCy"]]).addTo(mymap);
+                            else if (i == 2012)
+                                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                            else if (i == 2013)
+                                var SC = L.marker([icws["SCx"], icws["SCy"]]).addTo(mymap);
+                            else if (i == 2014)
+                                var AA = L.marker([icws["AAx"], icws["AAy"]]).addTo(mymap);
+                            else if (i == 2015)
+                                var NY = L.marker([icws["NYx"], icws["NYy"]]).addTo(mymap);
+                            else if (i == 2016)
+                                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                            else if (i == 2017)
+                                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                            else if (i == 2018)
+                                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                            else if (i == 2019)
+                                var MI = L.marker([icws["MIx"], icws["MIy"]]).addTo(mymap);
+                            else if (i == 2020)
+                                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                        }
+                    }
+                }
+                else if (@conf.equals("SCC"))
+                {
+                    if (@year1 != 0)
+                    {
+                        for (let i = @year1; i <= @year2; i++)
+                        {
+                            if (i == 2003)
+                                var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
+                            else if (i == 2004)
+                                var SD = L.marker([icws["SDx"], icws["SDy"]]).addTo(mymap);
+                            else if (i == 2005)
+                                var OF = L.marker([icws["OFx"], icws["OFy"]]).addTo(mymap);
+                            else if (i == 2006)
+                                var CI = L.marker([icws["CIx"], icws["CIy"]]).addTo(mymap);
+                            else if (i == 2007)
+                                var SL = L.marker([icws["SLx"], icws["SLy"]]).addTo(mymap);
+                            else if (i == 2008)
+                                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                            else if (i == 2009)
+                                var BI = L.marker([scc["BIx"], scc["BIy"]]).addTo(mymap);
+                            else if (i == 2010)
+                                var MF = L.marker([icws["MFx"], icws["MFy"]]).addTo(mymap);
+                            else if (i == 2011)
+                                var DC = L.marker([icws["DCx"], icws["DCy"]]).addTo(mymap);
+                            else if (i == 2012)
+                                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                            else if (i == 2013)
+                                var SC = L.marker([icws["SCx"], icws["SCy"]]).addTo(mymap);
+                            else if (i == 2014)
+                                var AA = L.marker([icws["AAx"], icws["AAy"]]).addTo(mymap);
+                            else if (i == 2015)
+                                var NY = L.marker([icws["NYx"], icws["NYy"]]).addTo(mymap);
+                            else if (i == 2016)
+                                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                            else if (i == 2017)
+                                var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                            else if (i == 2018)
+                                var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                            else if (i == 2019)
+                                var MI = L.marker([icws["MIx"], icws["MIy"]]).addTo(mymap);
+                            else if (i == 2020)
+                                var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                        }
+                    }
+                }
 
-                var BI = L.marker([scc["BIx"], scc["BIy"]]).addTo(mymap);
+                //var marker = L.marker([51.5, -.09]).addTo(mymap); //londok UK test marker
+                // var LV = L.marker([icws["LVx"], icws["LVy"]]).addTo(mymap);
+                // var SD = L.marker([icws["SDx"], icws["SDy"]]).addTo(mymap);
+                // var OF = L.marker([icws["OFx"], icws["OFy"]]).addTo(mymap);
+                // var BC = L.marker([icws["BCx"], icws["BCy"]]).addTo(mymap);
+                // var HH = L.marker([icws["HHx"], icws["HHy"]]).addTo(mymap);
+                // var SF = L.marker([icws["SFx"], icws["SFy"]]).addTo(mymap);
+                // var SC = L.marker([icws["SCx"], icws["SCy"]]).addTo(mymap);
+                // var MF = L.marker([icws["MFx"], icws["MFy"]]).addTo(mymap);
+                // var DC = L.marker([icws["DCx"], icws["DCy"]]).addTo(mymap);
+                // var MI = L.marker([icws["MIx"], icws["MIy"]]).addTo(mymap);
+                // var LA = L.marker([icws["LAx"], icws["LAy"]]).addTo(mymap);
+                // var AA = L.marker([icws["AAx"], icws["AAy"]]).addTo(mymap);
+                // var SL = L.marker([icws["SLx"], icws["SLy"]]).addTo(mymap);
+                // var CI = L.marker([icws["CIx"], icws["CIy"]]).addTo(mymap);
+                // var NY = L.marker([icws["NYx"], icws["NYy"]]).addTo(mymap);
+                //
+                // var BI = L.marker([scc["BIx"], scc["BIy"]]).addTo(mymap);
         </script>
 
     </body>
